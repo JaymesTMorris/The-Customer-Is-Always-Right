@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh56c8mvfk314"]
+
+[ext_resource type="Texture2D" uid="uid://cdou4esbt4bhe" path="res://Images/burger/top_bun.png" id="1_qty40"]
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_u7sw5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvlbh"]
+size = Vector2(200, 100)
+
+[node name="Ingredient" type="Node2D"]
+script = ExtResource("1_u7sw5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_qty40")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qvlbh")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

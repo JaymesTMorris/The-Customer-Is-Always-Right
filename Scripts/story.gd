@@ -56,4 +56,4 @@ func _next_dialogue():
 			get_node("StoryOutput/Continue").show()
 
 func _on_continue_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/ingredient.tscn") #temp
