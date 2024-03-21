@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="The Customer Is Always Right"
+run/main_scene="res://Scenes/main_menu.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://Images/icon.svg"
+
+[autoload]
+
+Player="*res://Scripts/player.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="mobile"

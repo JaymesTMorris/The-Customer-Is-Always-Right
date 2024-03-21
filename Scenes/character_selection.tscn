@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://do63cwc8xn0iq"]
+
+[ext_resource type="Texture2D" uid="uid://wwjlncqumptv" path="res://Images/character_selection/ChooseYourChef.jpg" id="1_2go5y"]
+[ext_resource type="Script" path="res://Scripts/character_selection.gd" id="1_aj0dx"]
+[ext_resource type="Texture2D" uid="uid://bo8b3e7utppmr" path="res://Images/character_selection/ChooseYourChef_00.jpg" id="2_66ugg"]
+[ext_resource type="Texture2D" uid="uid://djdekeoljrvgk" path="res://Images/character_selection/ChooseYourChef_01.jpg" id="3_cwwh6"]
+
+[node name="CharacterSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aj0dx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.882353, 0.882353, 0.882353, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, 45)
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("1_2go5y")
+centered = false
+
+[node name="Chef0" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 45)
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("2_66ugg")
+centered = false
+
+[node name="Chef1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 45)
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("3_cwwh6")
+centered = false
+
+[node name="Button0" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 576.0
+grow_vertical = 2
+
+[node name="Button1" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="Button0" to="." method="_on_button_0_mouse_entered"]
+[connection signal="mouse_exited" from="Button0" to="." method="_on_button_0_mouse_exited"]
+[connection signal="pressed" from="Button0" to="." method="_on_button_0_pressed"]
+[connection signal="mouse_entered" from="Button1" to="." method="_on_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="Button1" to="." method="_on_button_1_mouse_exited"]
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
