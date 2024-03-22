@@ -12,9 +12,6 @@ scale = Vector2(1.14, 1.14)
 texture = ExtResource("1_6ttki")
 centered = false
 
-[node name="ItemSlot" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(201, 202)
-
 [node name="ItemSlot2" parent="." instance=ExtResource("1_maf3u")]
 position = Vector2(163, 562)
 
@@ -44,9 +41,6 @@ position = Vector2(645, 385)
 
 [node name="ItemSlot17" parent="." instance=ExtResource("1_maf3u")]
 position = Vector2(291, 385)
-
-[node name="ItemSlot18" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(42, 296)
 
 [node name="DraggableObject" parent="." instance=ExtResource("1_8m1q7")]
 position = Vector2(201, 202)
