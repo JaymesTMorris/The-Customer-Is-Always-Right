@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://viqpeetiplcu" path="res://Images/PoisonIvyJar.jpg" id="2_o7er0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvkjh"]
-size = Vector2(128, 128)
+size = Vector2(32, 32)
 
 [node name="DraggableObject" type="Node2D"]
 script = ExtResource("1_hb0yw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.455, 0.455)
+scale = Vector2(0.115, 0.115)
 texture = ExtResource("2_o7er0")
 
 [node name="Area2D" type="Area2D" parent="."]

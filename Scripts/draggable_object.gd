@@ -24,6 +24,8 @@ func _process(delta):
 			global.is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_inside_dropable:
+				if body_ref.is_in_group("trash"):
+					queue_free()
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
