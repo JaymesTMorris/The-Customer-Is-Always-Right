@@ -58,7 +58,7 @@ func _on_area_2d_body_exited(body):
 func _create_clone():
 	var node = load(food_prefab_path)
 	var instance = node.instantiate()
-	instance.position = body_ref.position
-	instance.initial_position = body_ref.position
+	instance.position = initial_position
+	instance.initial_position = initial_position
 	add_sibling(instance)
 	
