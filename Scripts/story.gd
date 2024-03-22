@@ -35,7 +35,7 @@ var current_dialogue = 0
 
 # Initialization
 func _ready():
-	player = get_node("/root/Player")
+	player = get_node("/root/player")
 	start_story()
 
 func start_story():
@@ -56,4 +56,4 @@ func _next_dialogue():
 			get_node("StoryOutput/Continue").show()
 
 func _on_continue_pressed():
-	get_tree().change_scene_to_file("res://Scenes/ingredient.tscn") #temp
+	get_tree().change_scene_to_file("res://Scenes/game.tscn")
