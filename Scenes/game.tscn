@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4oafrvpbf7nx"]
+
+[ext_resource type="PackedScene" uid="uid://vfj60vmr2oyq" path="res://Prefabs/draggable_object.tscn" id="1_8m1q7"]
+[ext_resource type="PackedScene" uid="uid://bxwn6nkhv5kys" path="res://Prefabs/item_slot.tscn" id="1_maf3u"]
+
+[node name="Game" type="Node2D"]
+
+[node name="ItemSlot" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(93, 88)
+
+[node name="ItemSlot2" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(1066, 89)
+
+[node name="ItemSlot3" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(90, 559)
+
+[node name="ItemSlot4" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(1053, 558)
+
+[node name="ItemSlot5" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(532, 309)
+
+[node name="DraggableObject" parent="." instance=ExtResource("1_8m1q7")]
+position = Vector2(532, 309)

@@ -53,6 +53,7 @@ grow_vertical = 2
 color = Color(0.611765, 0.611765, 0.611765, 1)
 
 [node name="Next" type="Button" parent="StoryOutput"]
+layout_mode = 0
 offset_left = 937.0
 offset_top = 166.0
 offset_right = 1011.0
@@ -61,6 +62,7 @@ text = "Next"
 
 [node name="Continue" type="Button" parent="StoryOutput"]
 visible = false
+layout_mode = 0
 offset_left = 937.0
 offset_top = 166.0
 offset_right = 1011.0
