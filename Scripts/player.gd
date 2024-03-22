@@ -1,3 +1,3 @@
 extends Node
 
-var gender = 0 # 0 = Male | 1 = Female
+var gender: int = 0 # 0 = Male | 1 = Female

@@ -5,7 +5,7 @@ var player
 
 # Initialization
 func _ready():
-	player = get_node("/root/Player")
+	player = get_node("/root/player")
 
 # On Button Hover
 func _on_button_0_mouse_entered():
@@ -34,6 +34,7 @@ func _on_button_1_pressed(): # Female Chef
 # Other
 func on_character_selected(gender):
 	if gender == 0:
+		print(player.gender)
 		player.gender = 0
 	elif gender == 1:
 		player.gender = 1
