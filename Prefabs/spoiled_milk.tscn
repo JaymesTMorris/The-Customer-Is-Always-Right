@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://vfj60vmr2oyq"]
+[gd_scene load_steps=4 format=3 uid="uid://daypdwgtqisos"]
 
-[ext_resource type="Script" path="res://Scripts/food.gd" id="1_4hwda"]
-[ext_resource type="Texture2D" uid="uid://viqpeetiplcu" path="res://Images/Food/PoisonIvyJar.jpg" id="2_o7er0"]
+[ext_resource type="Script" path="res://Scripts/food.gd" id="1_hctln"]
+[ext_resource type="Texture2D" uid="uid://grr3u56p53uc" path="res://Images/Food/SpoiledMilk.jpg" id="2_qeao4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvkjh"]
 size = Vector2(32, 32)
 
 [node name="DraggableObject" type="Node2D"]
-script = ExtResource("1_4hwda")
+script = ExtResource("1_hctln")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.115, 0.115)
-texture = ExtResource("2_o7er0")
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_qeao4")
 
 [node name="Area2D" type="Area2D" parent="."]
 

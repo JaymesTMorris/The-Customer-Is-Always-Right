@@ -1,18 +1,18 @@
 extends Node2D
 
-var draggable = false
-var is_inside_dropable = false
+var draggable:bool = false
+var is_inside_dropable: bool = false
+var is_cloneable:bool = true
+
+var food_prefab_path: String
 var body_ref
 var offset: Vector2
 var initial_position: Vector2
-var is_cloneable = true
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	initial_position = position
+	food_prefab_path = scene_file_path
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if draggable:
 		if Input.is_action_just_pressed("click"):
@@ -39,12 +39,10 @@ func _on_area_2d_mouse_entered():
 		draggable = true
 		scale = Vector2(1.05, 1.05)
 
-
 func _on_area_2d_mouse_exited():
 	if not global.is_dragging:
 		draggable = false
 		scale = Vector2(1,1)
-
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("dropable"):
@@ -52,14 +50,13 @@ func _on_area_2d_body_entered(body):
 		body.modulate = Color(Color.REBECCA_PURPLE, 1)
 		body_ref = body
 
-
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
 		body.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 		
 func _create_clone():
-	var node = load("res://Prefabs/draggable_object.tscn")
+	var node = load(food_prefab_path)
 	var instance = node.instantiate()
 	instance.position = body_ref.position
 	instance.initial_position = body_ref.position
