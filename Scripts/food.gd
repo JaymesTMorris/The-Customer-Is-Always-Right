@@ -38,11 +38,13 @@ func _on_area_2d_mouse_entered():
 	if not global.is_dragging:
 		draggable = true
 		scale = Vector2(1.05, 1.05)
+		$Sprite2D.material.set_shader_parameter("enabled", true)
 
 func _on_area_2d_mouse_exited():
 	if not global.is_dragging:
 		draggable = false
 		scale = Vector2(1,1)
+		$Sprite2D.material.set_shader_parameter("enabled", false)
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("dropable"):

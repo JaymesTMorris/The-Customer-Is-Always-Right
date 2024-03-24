@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://vfj60vmr2oyq"]
+[gd_scene load_steps=6 format=3 uid="uid://vfj60vmr2oyq"]
 
 [ext_resource type="Script" path="res://Scripts/food.gd" id="1_4hwda"]
 [ext_resource type="Texture2D" uid="uid://viqpeetiplcu" path="res://Images/Food/PoisonIvyJar.jpg" id="2_o7er0"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_s0jh8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
+shader = ExtResource("2_s0jh8")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/enabled = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvkjh"]
 size = Vector2(32, 32)
@@ -10,6 +17,7 @@ size = Vector2(32, 32)
 script = ExtResource("1_4hwda")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rgeuv")
 scale = Vector2(0.115, 0.115)
 texture = ExtResource("2_o7er0")
 
