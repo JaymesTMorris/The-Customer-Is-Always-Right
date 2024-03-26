@@ -56,10 +56,26 @@ func stop_dragging():
 			tween.connect("finished", func(): tween_finished(true))
 
 func tween_finished(delete:bool = false):
+	is_draggable = false
 	global.is_dragging = false
-	print("Tween animation finished. Delete object: ",delete)
 	if delete:
 		queue_free()
+	else:
+		place_in_slot()
+
+func place_in_slot():
+	if hovered_item_slot.is_in_group("plate"):
+		if hovered_item_slot.items_in_slot.size() < 6:
+			hovered_item_slot.items_in_slot.push_front(self)
+		else:
+			queue_free()
+	else: #If it is not being placed on a plate
+		if hovered_item_slot.items_in_slot.size() == 0:
+			hovered_item_slot.items_in_slot.push_front(self)
+		else:
+			queue_free()
+		
+		
 
 func _on_area_2d_mouse_entered(): # When mouse starts hovering over a food item
 	if not global.is_dragging:

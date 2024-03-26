@@ -24,7 +24,7 @@ position = Vector2(537, 593)
 [node name="ItemSlot5" parent="." groups=["trash"] instance=ExtResource("1_maf3u")]
 position = Vector2(1057, 568)
 
-[node name="ItemSlot6" parent="." instance=ExtResource("1_maf3u")]
+[node name="ItemSlot6" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(466, 387)
 
 [node name="ItemSlot13" parent="." instance=ExtResource("1_maf3u")]
@@ -33,13 +33,13 @@ position = Vector2(627, 522)
 [node name="ItemSlot14" parent="." instance=ExtResource("1_maf3u")]
 position = Vector2(454, 523)
 
-[node name="ItemSlot15" parent="." instance=ExtResource("1_maf3u")]
+[node name="ItemSlot15" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(857, 388)
 
-[node name="ItemSlot16" parent="." instance=ExtResource("1_maf3u")]
+[node name="ItemSlot16" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(645, 385)
 
-[node name="ItemSlot17" parent="." instance=ExtResource("1_maf3u")]
+[node name="ItemSlot17" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(291, 385)
 
 [node name="PoisonIvy" parent="." instance=ExtResource("1_8m1q7")]
