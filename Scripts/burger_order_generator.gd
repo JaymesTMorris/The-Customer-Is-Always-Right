@@ -2,6 +2,7 @@ extends Node2D
 
 
 var ingredients : Dictionary = {
+	# ID : Ingredient Name
 	1 : "Patty" ,
 	2 : "Lettuce",
 	3 : "Pickles",
@@ -18,17 +19,21 @@ var bad_ingredients : Dictionary = {
 }
 
 func _ready():
-	$Label.text = generate()
+	$Label.text = str(generate())
 
 func generate():
-	var order : Dictionary = {}
+	var order : Array = []
 	var ingredient_one = ingredients.get(1)
 	var ingredient_two = ingredients.get(randi_range(1, ingredients.size()))
 	while ingredient_two == ingredient_one:
 		ingredient_two = ingredients.get(randi_range(1, ingredients.size()))
 	var ingredient_three = ingredients.get(randi_range(1, ingredients.size()))
-	while ingredient_three == ingredient_one || ingredient_three == ingredient_two:
+	while (ingredient_three == ingredient_one) || (ingredient_three == ingredient_two):
 		ingredient_three = ingredients.get(randi_range(1, ingredients.size()))
 	var bad_ingredient = bad_ingredients.get(randi_range(1, bad_ingredients.size()))
-	return(ingredient_one + ", " + ingredient_two + ", " + ingredient_three +", and "+bad_ingredient)
+	order.append(ingredient_one)
+	order.append(ingredient_two)
+	order.append(ingredient_three)
+	order.append(bad_ingredient)
+	return(order)
 
