@@ -4,6 +4,8 @@ extends Node2D
 var is_draggable:bool = false
 var is_inside_dropable: bool = false
 var is_not_a_clone:bool = true
+var is_plated_child:bool = false # Is plated and a child of another food.
+var is_plated_parent:bool = false # Is plated and parent of all food on plate.
 
 var food_prefab_path: String
 var hovered_item_slot: Object
@@ -30,6 +32,10 @@ func handle_dragging():
 			stop_dragging()
 
 func start_dragging():
+	if is_plated_parent:
+		hovered_item_slot.items_in_slot = []
+		queue_free()
+		return
 	if is_not_a_clone:
 		is_draggable = false
 		clone = _create_clone()
@@ -67,18 +73,27 @@ func place_in_slot():
 	if hovered_item_slot.is_in_group("plate"):
 		if hovered_item_slot.items_in_slot.size() < 6:
 			hovered_item_slot.items_in_slot.push_front(self)
+			offset_ingredients()
 		else:
 			queue_free()
 	else: #If it is not being placed on a plate
 		if hovered_item_slot.items_in_slot.size() == 0:
-			hovered_item_slot.items_in_slot.push_front(self)
+			hovered_item_slot.items_in_slot.append(self)
 		else:
 			queue_free()
-		
-		
+
+func offset_ingredients():
+	var ingredients = hovered_item_slot.items_in_slot
+	for index in ingredients.size():
+		if index == 0:
+			ingredients[index].is_plated_parent = true
+		else:
+			ingredients[index].reparent(ingredients[index-1])
+			ingredients[index].is_plated_child = true
+			ingredients[index].global_position.y = hovered_item_slot.global_position.y - (10 * index)
 
 func _on_area_2d_mouse_entered(): # When mouse starts hovering over a food item
-	if not global.is_dragging:
+	if not global.is_dragging && not is_plated_child:
 		is_draggable = true
 		scale = Vector2(1.05, 1.05)
 		$Sprite2D.material.set_shader_parameter("enabled", true)
