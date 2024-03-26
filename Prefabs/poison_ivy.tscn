@@ -1,25 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxwn6nkhv5kys"]
+[gd_scene load_steps=6 format=3 uid="uid://vfj60vmr2oyq"]
 
-[ext_resource type="Script" path="res://Scripts/item_slot.gd" id="2_fbnbf"]
+[ext_resource type="Script" path="res://Scripts/food.gd" id="1_4hwda"]
+[ext_resource type="Texture2D" uid="uid://viqpeetiplcu" path="res://Images/Food/PoisonIvyJar.jpg" id="2_o7er0"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_s0jh8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5xf2"]
-size = Vector2(40, 40)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
+shader = ExtResource("2_s0jh8")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/enabled = false
 
-[node name="ItemSlot" type="StaticBody2D" groups=["dropable"]]
-script = ExtResource("2_fbnbf")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvkjh"]
+size = Vector2(32, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_t5xf2")
+[node name="DraggableObject" type="Node2D"]
+script = ExtResource("1_4hwda")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rgeuv")
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("2_o7er0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lvkjh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

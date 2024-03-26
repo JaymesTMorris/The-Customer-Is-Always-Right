@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4oafrvpbf7nx"]
 
 [ext_resource type="Texture2D" uid="uid://dymc7gjyat0v" path="res://Images/Kitchen.png" id="1_6ttki"]
-[ext_resource type="PackedScene" uid="uid://vfj60vmr2oyq" path="res://Prefabs/draggable_object.tscn" id="1_8m1q7"]
-[ext_resource type="PackedScene" uid="uid://bxwn6nkhv5kys" path="res://Prefabs/poison_ivy.tscn" id="1_maf3u"]
-[ext_resource type="PackedScene" uid="uid://daypdwgtqisos" path="res://Prefabs/spoiled_milk.tscn" id="4_vq5ud"]
+[ext_resource type="PackedScene" uid="uid://vfj60vmr2oyq" path="res://Prefabs/poison_ivy.tscn" id="1_8m1q7"]
+[ext_resource type="PackedScene" uid="uid://bxwn6nkhv5kys" path="res://Prefabs/item_slot.tscn" id="1_maf3u"]
+[ext_resource type="PackedScene" uid="uid://ba0k6csqhibv3" path="res://Prefabs/spoiled_milk.tscn" id="4_vq5ud"]
 
 [node name="Game" type="Node2D"]
 
@@ -42,9 +42,9 @@ position = Vector2(645, 385)
 [node name="ItemSlot17" parent="." instance=ExtResource("1_maf3u")]
 position = Vector2(291, 385)
 
-[node name="DraggableObject" parent="." instance=ExtResource("1_8m1q7")]
+[node name="PoisonIvy" parent="." instance=ExtResource("1_8m1q7")]
 position = Vector2(201, 202)
 
-[node name="DraggableObject2" parent="." instance=ExtResource("4_vq5ud")]
+[node name="SpoiledMilk" parent="." instance=ExtResource("4_vq5ud")]
 position = Vector2(42, 296)
 scale = Vector2(1, 0.994145)
