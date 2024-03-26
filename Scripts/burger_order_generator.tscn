@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bldyldwooc2xr"]
+
+[ext_resource type="Script" path="res://Scripts/burger_order_generator.gd" id="1_71u37"]
+
+[node name="Burger Order Generator" type="Node2D"]
+script = ExtResource("1_71u37")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
