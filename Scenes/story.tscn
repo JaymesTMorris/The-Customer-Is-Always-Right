@@ -22,6 +22,7 @@ grow_vertical = 2
 color = Color(0.882353, 0.882353, 0.882353, 1)
 
 [node name="Chef" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 centered = false
 
 [node name="StoryOutput" type="RichTextLabel" parent="."]
@@ -54,19 +55,19 @@ color = Color(0.611765, 0.611765, 0.611765, 1)
 
 [node name="Next" type="Button" parent="StoryOutput"]
 layout_mode = 0
-offset_left = 937.0
-offset_top = 166.0
-offset_right = 1011.0
-offset_bottom = 197.0
+offset_left = 1680.0
+offset_top = 160.0
+offset_right = 1754.0
+offset_bottom = 191.0
 text = "Next"
 
 [node name="Continue" type="Button" parent="StoryOutput"]
 visible = false
 layout_mode = 0
-offset_left = 937.0
-offset_top = 166.0
-offset_right = 1011.0
-offset_bottom = 197.0
+offset_left = 1680.0
+offset_top = 160.0
+offset_right = 1759.0
+offset_bottom = 191.0
 text = "Continue"
 
 [connection signal="pressed" from="StoryOutput/Next" to="." method="_next_dialogue"]

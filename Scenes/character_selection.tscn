@@ -24,22 +24,19 @@ grow_vertical = 2
 color = Color(0.882353, 0.882353, 0.882353, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(0, 45)
-scale = Vector2(1.03, 1.03)
+scale = Vector2(1.71199, 1.98529)
 texture = ExtResource("1_2go5y")
 centered = false
 
 [node name="Chef0" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, 45)
-scale = Vector2(1.03, 1.03)
+scale = Vector2(1.712, 1.985)
 texture = ExtResource("2_66ugg")
 centered = false
 
 [node name="Chef1" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, 45)
-scale = Vector2(1.03, 1.03)
+scale = Vector2(1.712, 1.985)
 texture = ExtResource("3_cwwh6")
 centered = false
 
@@ -48,7 +45,7 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 576.0
+offset_right = 982.0
 grow_vertical = 2
 
 [node name="Button1" type="Button" parent="."]
@@ -58,7 +55,7 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -576.0
+offset_left = -935.0
 grow_horizontal = 0
 grow_vertical = 2
 

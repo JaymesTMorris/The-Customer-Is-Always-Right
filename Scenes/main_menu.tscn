@@ -22,6 +22,7 @@ grow_vertical = 2
 color = Color(0.882353, 0.882353, 0.882353, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.71825, 1.9051)
 texture = ExtResource("2_u227b")
 centered = false
 
@@ -31,7 +32,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 31.0
-offset_top = 514.0
+offset_top = 946.0
 offset_right = -893.0
 offset_bottom = -33.0
 grow_horizontal = 2

@@ -43,7 +43,7 @@ func start_story():
 		get_node("Chef").texture = load("res://Images/Chef_00.jpg")
 	elif player.gender == 1:
 		get_node("Chef").texture = load("res://Images/Chef_01.jpg")
-	get_node("StoryOutput").text = dialogue[current_dialogue]
+	get_node("StoryOutput").text = "[center]"+dialogue[current_dialogue]+"[/center]"
 
 func _next_dialogue():
 	current_dialogue += 1
