@@ -37,7 +37,7 @@ func start_dragging():
 		queue_free()
 		return
 	elif is_plated_child:
-		if hovered_item_slot.items_in_slot.size() != 0: # Will never be empty. Calling this to ensure nodes are properly loaded to not throw an error.
+		if hovered_item_slot.items_in_slot.size() != 0:
 			var plated_parent = hovered_item_slot.items_in_slot[0]
 			hovered_item_slot.items_in_slot = []
 			plated_parent.queue_free()

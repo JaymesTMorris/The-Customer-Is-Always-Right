@@ -1,39 +1,106 @@
 extends Node2D
 
+var burger_ingredients: Array = [
+	["Cooked Patty", "beef_patty.tscn"],
+	["Bottom Bun", "bun_bottom.tscn"],
+	["Top Bun", "bun_top.tscn"],
+	["Cheese", "cheese.tscn"],
+	["Lettuce", "lettuce.tscn"],
+	["Tomato", "tomato.tscn"]
+]
 
-var ingredients : Dictionary = {
-	# ID : Ingredient Name
-	1 : "Patty" ,
-	2 : "Lettuce",
-	3 : "Pickles",
-	4 : "Tomato",
-	5 : "Cheese",
-	6 : "Chicken"
+var bad_burger_ingredients: Array = [
+	["Moldy Bread", "moldy_bread.tscn"],
+	["Poison Ivy", "poison_ivy.tscn"]
+]
+
+func _ready ():
+	generate_burger_order()
+
+func generate_burger_order(is_good_customer: bool = true):
+	var burger_order = ["Top Bun"] # Burger orders will always have a Top Bun
+	var good_ingredients = generate_good_burger_ingredients() # Returns 0 - 2 good ingredients
+	var bad_ingredients = generate_bad_burger_ingredients() # Returns 1 bad ingredient
 	
-}
-var bad_ingredients : Dictionary = {
-	1 : "Moldy bread",
-	2 : "Old Gum",
-	3 : "Latex Glove",
-	4 : "Bones"
-}
+	burger_order.append_array(good_ingredients)
+	if not is_good_customer:
+		burger_order.append_array(bad_ingredients) 
+	burger_order.append("Cooked Patty") # Burger orders will always have a Cooked Patty
+	burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
+	
+	print_order(burger_order)
+	return burger_order
 
-func _ready():
-	$Label.text = str(generate())
+func generate_good_burger_ingredients():
+	var good_ingredients = []
+	var current_ingredients_on_burger = 3 # Burgers are always have 2 buns and 1 patty
+	
+	while current_ingredients_on_burger < 5:
+		if randi() % 2 == 0: # 50% for burger to have Tomato
+			good_ingredients.append("Tomato")
+			current_ingredients_on_burger += 1
+		if randi() % 2 == 0: # 50% for burger to have Lettuce
+			good_ingredients.append("Lettuce")
+			current_ingredients_on_burger += 1
+		if randi() % 2 == 0: # 50% for burger to have Cheese
+			good_ingredients.append("Cheese")
+			current_ingredients_on_burger += 1
+		if randi() % 2 == 0: # 50% for burger to have Cheese (or extra cheese)
+			good_ingredients.append("Cheese")
+			current_ingredients_on_burger += 1
+		break
+		
+	return good_ingredients
 
-func generate():
-	var order : Array = []
-	var ingredient_one = ingredients.get(1)
-	var ingredient_two = ingredients.get(randi_range(1, ingredients.size()))
-	while ingredient_two == ingredient_one:
-		ingredient_two = ingredients.get(randi_range(1, ingredients.size()))
-	var ingredient_three = ingredients.get(randi_range(1, ingredients.size()))
-	while (ingredient_three == ingredient_one) || (ingredient_three == ingredient_two):
-		ingredient_three = ingredients.get(randi_range(1, ingredients.size()))
-	var bad_ingredient = bad_ingredients.get(randi_range(1, bad_ingredients.size()))
-	order.append(ingredient_one)
-	order.append(ingredient_two)
-	order.append(ingredient_three)
-	order.append(bad_ingredient)
-	return(order)
+func generate_bad_burger_ingredients():
+	var bad_ingredients = []
+	
+	# 50% for burger to have Moldy Bread or Poison Ivy
+	if randi() % 2 == 0: 
+		bad_ingredients.append("Moldy Bread")
+	else:
+		bad_ingredients.append("Poison Ivy")
+		
+	return bad_ingredients
+
+func print_order(order):
+	for i in order.size():
+		$Label.text += order[i]
+		$Label.text += "\n"
+	
+#var ingredients : Dictionary = {
+	## ID : Ingredient Name
+	#1 : "Patty" ,
+	#2 : "Lettuce",
+	#3 : "Pickles",
+	#4 : "Tomato",
+	#5 : "Cheese",
+	#6 : "Chicken"
+	#
+#}
+#var bad_ingredients : Dictionary = {
+	#1 : "Moldy bread",
+	#2 : "Old Gum",
+	#3 : "Latex Glove",
+	#4 : "Bones"
+#}
+#
+#func _ready():
+	#$Label.text = str(generate())
+#
+#func generate():
+	#var order : Array = []
+	#var ingredient_one = ingredients.get(1)
+	#var ingredient_two = ingredients.get(randi_range(1, ingredients.size()))
+	#while ingredient_two == ingredient_one:
+		#ingredient_two = ingredients.get(randi_range(1, ingredients.size()))
+	#var ingredient_three = ingredients.get(randi_range(1, ingredients.size()))
+	#while (ingredient_three == ingredient_one) || (ingredient_three == ingredient_two):
+		#ingredient_three = ingredients.get(randi_range(1, ingredients.size()))
+	#var bad_ingredient = bad_ingredients.get(randi_range(1, bad_ingredients.size()))
+	#order.append(ingredient_one)
+	#order.append(ingredient_two)
+	#order.append(ingredient_three)
+	#order.append(bad_ingredient)
+	#return(order)
 
