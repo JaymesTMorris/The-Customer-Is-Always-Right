@@ -56,20 +56,20 @@ position = Vector2(265, 499)
 scale = Vector2(2.34832, 2.308)
 
 [node name="Grill 00" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(186, 845)
-scale = Vector2(3.5, 3.5)
+position = Vector2(151, 840)
+scale = Vector2(5, 2.5)
 
 [node name="Grill 01" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(430, 845)
-scale = Vector2(3.5, 3.5)
+position = Vector2(452, 802)
+scale = Vector2(5, 2.5)
 
 [node name="Grill 02" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(118, 1003)
-scale = Vector2(3.5, 3.5)
+position = Vector2(109, 1023)
+scale = Vector2(5, 2.5)
 
 [node name="Grill 03" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(357, 999)
-scale = Vector2(3.5, 3.5)
+position = Vector2(420, 968)
+scale = Vector2(5, 2.5)
 
 [node name="Plate 00" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(795, 715)
