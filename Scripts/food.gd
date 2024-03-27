@@ -48,6 +48,7 @@ func start_dragging():
 		mouse_offset = get_global_mouse_position() - clone.global_position
 		global.is_dragging = true
 	else:
+		hovered_item_slot.items_in_slot = []
 		mouse_offset = get_global_mouse_position() - global_position
 		global.is_dragging = true
 
