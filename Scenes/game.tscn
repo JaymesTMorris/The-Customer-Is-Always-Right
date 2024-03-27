@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4oafrvpbf7nx"]
+[gd_scene load_steps=14 format=3 uid="uid://b4oafrvpbf7nx"]
 
 [ext_resource type="Texture2D" uid="uid://dwimjvpfld51p" path="res://Images/KitchenBackground2.png" id="1_e82k5"]
 [ext_resource type="PackedScene" uid="uid://bxwn6nkhv5kys" path="res://Prefabs/item_slot.tscn" id="1_maf3u"]
@@ -8,6 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://c7qj0k5ruoe13" path="res://Prefabs/Burger/beef_patty.tscn" id="6_vshen"]
 [ext_resource type="PackedScene" uid="uid://tf8b8ha3nly8" path="res://Prefabs/Burger/bun_bottom.tscn" id="7_1rqiq"]
 [ext_resource type="PackedScene" uid="uid://b5b0vot3w4250" path="res://Prefabs/Burger/bun_top.tscn" id="8_e0ye7"]
+[ext_resource type="FontFile" uid="uid://bsel54ud03407" path="res://Fonts/Comic Sans MS/COMIC.TTF" id="9_au3vr"]
+[ext_resource type="Texture2D" uid="uid://dln2ty2s61bfb" path="res://Images/GUI/GUI.png" id="9_hw25t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4kmm2"]
+texture = ExtResource("9_hw25t")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gg1g0"]
+texture = ExtResource("9_hw25t")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71fva"]
+texture = ExtResource("9_hw25t")
+region_rect = Rect2(145, 98, 46, 13)
 
 [node name="Game" type="Node2D"]
 
@@ -75,3 +89,51 @@ scale = Vector2(1.645, 0.865)
 [node name="Trash" parent="." groups=["trash"] instance=ExtResource("1_maf3u")]
 position = Vector2(1700, 999)
 scale = Vector2(5, 5)
+
+[node name="ServeButton00" type="Button" parent="."]
+offset_left = 741.0
+offset_top = 736.0
+offset_right = 846.0
+offset_bottom = 765.0
+theme_override_fonts/font = ExtResource("9_au3vr")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
+text = "SERVE"
+
+[node name="ServeButton01" type="Button" parent="."]
+offset_left = 901.0
+offset_top = 735.0
+offset_right = 1006.0
+offset_bottom = 764.0
+theme_override_fonts/font = ExtResource("9_au3vr")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
+text = "SERVE"
+
+[node name="ServeButton02" type="Button" parent="."]
+offset_left = 1041.0
+offset_top = 736.0
+offset_right = 1146.0
+offset_bottom = 765.0
+theme_override_fonts/font = ExtResource("9_au3vr")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
+text = "SERVE"
+
+[node name="ServeButton03" type="Button" parent="."]
+offset_left = 1196.0
+offset_top = 736.0
+offset_right = 1301.0
+offset_bottom = 765.0
+theme_override_fonts/font = ExtResource("9_au3vr")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
+text = "SERVE"
