@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://2iutkhiiqh1x"]
+[gd_scene load_steps=7 format=3 uid="uid://2iutkhiiqh1x"]
 
 [ext_resource type="Script" path="res://Scripts/food.gd" id="1_7ig0e"]
 [ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_u6b6i"]
 [ext_resource type="Texture2D" uid="uid://d1ns71bk00267" path="res://Images/Food/SimpleSprites/Lettuce.png" id="3_0uokr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_auoln"]
+shader = ExtResource("2_u6b6i")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/enabled = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
 shader = ExtResource("2_u6b6i")
@@ -14,6 +20,7 @@ shader_parameter/enabled = false
 size = Vector2(32, 32)
 
 [node name="PoisonIvy" type="Node2D"]
+material = SubResource("ShaderMaterial_auoln")
 script = ExtResource("1_7ig0e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

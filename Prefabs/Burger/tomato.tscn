@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dotc37sleiqnw"]
+[gd_scene load_steps=7 format=3 uid="uid://dotc37sleiqnw"]
 
 [ext_resource type="Script" path="res://Scripts/food.gd" id="1_1kexb"]
 [ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_l8xge"]
 [ext_resource type="Texture2D" uid="uid://bmtxm2rlo2xm7" path="res://Images/Food/SimpleSprites/Tomato.png" id="3_vkwyj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1hnh"]
+shader = ExtResource("2_l8xge")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/enabled = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
 shader = ExtResource("2_l8xge")
@@ -14,6 +20,7 @@ shader_parameter/enabled = false
 size = Vector2(32, 32)
 
 [node name="PoisonIvy" type="Node2D"]
+material = SubResource("ShaderMaterial_b1hnh")
 script = ExtResource("1_1kexb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
