@@ -36,13 +36,20 @@ func start_dragging():
 		hovered_item_slot.items_in_slot = []
 		queue_free()
 		return
-	if is_not_a_clone:
+	elif is_plated_child:
+		if hovered_item_slot.items_in_slot.size() != 0: # Will never be empty. Calling this to ensure nodes are properly loaded to not throw an error.
+			var plated_parent = hovered_item_slot.items_in_slot[0]
+			hovered_item_slot.items_in_slot = []
+			plated_parent.queue_free()
+			return
+	elif is_not_a_clone:
 		is_draggable = false
 		clone = _create_clone()
 		mouse_offset = get_global_mouse_position() - clone.global_position
+		global.is_dragging = true
 	else:
 		mouse_offset = get_global_mouse_position() - global_position
-	global.is_dragging = true
+		global.is_dragging = true
 
 func drag():
 	if not is_not_a_clone: # If this is a clone
@@ -72,7 +79,7 @@ func tween_finished(delete:bool = false):
 func place_in_slot():
 	if hovered_item_slot.is_in_group("plate"):
 		if hovered_item_slot.items_in_slot.size() < 6:
-			hovered_item_slot.items_in_slot.push_front(self)
+			hovered_item_slot.items_in_slot.append(self)
 			offset_ingredients()
 		else:
 			queue_free()
@@ -91,17 +98,24 @@ func offset_ingredients():
 			ingredients[index].reparent(ingredients[index-1])
 			ingredients[index].is_plated_child = true
 			ingredients[index].global_position.y = hovered_item_slot.global_position.y - (10 * index)
+	#ingredients[0].global_position.y = hovered_item_slot.global_position.y - (10 * ingredients.size())
 
 func _on_area_2d_mouse_entered(): # When mouse starts hovering over a food item
-	if not global.is_dragging && not is_plated_child:
+	if not global.is_dragging:
 		is_draggable = true
-		scale = Vector2(1.05, 1.05)
+		if not is_plated_child:
+			scale = Vector2(1.05, 1.05)
+		else:
+			hovered_item_slot.items_in_slot[0].scale = Vector2(1.05, 1.05)
 		$Sprite2D.material.set_shader_parameter("enabled", true)
 
 func _on_area_2d_mouse_exited(): # When mouse stops hovering over a food item
 	if not global.is_dragging:
 		is_draggable = false
-		scale = Vector2(1,1)
+		if not is_plated_child:
+			scale = Vector2(1, 1)
+		else:
+			hovered_item_slot.items_in_slot[0].scale = Vector2(1, 1)
 		$Sprite2D.material.set_shader_parameter("enabled", false)
 
 func _on_area_2d_body_entered(body): # Dragged item is hovering over a 2d body (i.e. an item slot)
