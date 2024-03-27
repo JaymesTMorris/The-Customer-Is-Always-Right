@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4oafrvpbf7nx"]
 
-[ext_resource type="Texture2D" uid="uid://dymc7gjyat0v" path="res://Images/Kitchen.png" id="1_6ttki"]
+[ext_resource type="Texture2D" uid="uid://dwimjvpfld51p" path="res://Images/KitchenBackground2.png" id="1_e82k5"]
 [ext_resource type="PackedScene" uid="uid://bxwn6nkhv5kys" path="res://Prefabs/item_slot.tscn" id="1_maf3u"]
 [ext_resource type="PackedScene" uid="uid://dsabvxd1jxg2w" path="res://Prefabs/Burger/cheese.tscn" id="3_jpuij"]
 [ext_resource type="PackedScene" uid="uid://2iutkhiiqh1x" path="res://Prefabs/Burger/lettuce.tscn" id="4_j44t4"]
@@ -12,54 +12,66 @@
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(1.88086, 1.79833)
-texture = ExtResource("1_6ttki")
+scale = Vector2(1.17416, 1.154)
+texture = ExtResource("1_e82k5")
 centered = false
 
-[node name="ItemSlot2" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(294, 915)
+[node name="CookedBeefPatty" parent="." instance=ExtResource("6_vshen")]
+position = Vector2(94, 343)
+scale = Vector2(2.34832, 2.308)
 
-[node name="ItemSlot3" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(886, 826)
+[node name="BottomBun" parent="." instance=ExtResource("7_1rqiq")]
+position = Vector2(1610, 333)
+scale = Vector2(2.34832, 2.308)
 
-[node name="ItemSlot4" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(877, 946)
+[node name="TopBun" parent="." instance=ExtResource("8_e0ye7")]
+position = Vector2(1489, 333)
+scale = Vector2(2.34832, 2.308)
 
-[node name="ItemSlot5" parent="." groups=["trash"] instance=ExtResource("1_maf3u")]
-position = Vector2(1748, 899)
+[node name="Cheese" parent="." instance=ExtResource("3_jpuij")]
+position = Vector2(96, 502)
+scale = Vector2(2.34832, 2.308)
 
-[node name="ItemSlot6" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
-position = Vector2(766, 606)
+[node name="Lettuce" parent="." instance=ExtResource("4_j44t4")]
+position = Vector2(180, 500)
+scale = Vector2(2.34832, 2.308)
 
-[node name="ItemSlot13" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(1030, 826)
+[node name="Tomato" parent="." instance=ExtResource("5_27kjg")]
+position = Vector2(265, 499)
+scale = Vector2(2.34832, 2.308)
 
-[node name="ItemSlot14" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(744, 824)
+[node name="Grill 00" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(186, 845)
+scale = Vector2(3.5, 3.5)
 
-[node name="ItemSlot15" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
-position = Vector2(1413, 608)
+[node name="Grill 01" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(430, 845)
+scale = Vector2(3.5, 3.5)
 
-[node name="ItemSlot16" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
-position = Vector2(1061, 608)
+[node name="Grill 02" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(118, 1003)
+scale = Vector2(3.5, 3.5)
 
-[node name="ItemSlot17" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
-position = Vector2(482, 604)
+[node name="Grill 03" parent="." instance=ExtResource("1_maf3u")]
+position = Vector2(357, 999)
+scale = Vector2(3.5, 3.5)
 
-[node name="PoisonIvy" parent="." instance=ExtResource("3_jpuij")]
-position = Vector2(67, 359)
+[node name="Plate 00" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+position = Vector2(795, 715)
+scale = Vector2(1.645, 0.865)
 
-[node name="PoisonIvy2" parent="." instance=ExtResource("4_j44t4")]
-position = Vector2(98, 408)
+[node name="Plate 01" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+position = Vector2(951, 715)
+scale = Vector2(1.645, 0.865)
 
-[node name="PoisonIvy3" parent="." instance=ExtResource("5_27kjg")]
-position = Vector2(37, 411)
+[node name="Plate 02" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+position = Vector2(1093, 715)
+scale = Vector2(1.645, 0.865)
 
-[node name="PoisonIvy4" parent="." instance=ExtResource("6_vshen")]
-position = Vector2(65, 465)
+[node name="Plate 03" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+position = Vector2(1249, 715)
+scale = Vector2(1.645, 0.865)
 
-[node name="PoisonIvy5" parent="." instance=ExtResource("7_1rqiq")]
-position = Vector2(313, 416)
-
-[node name="PoisonIvy6" parent="." instance=ExtResource("8_e0ye7")]
-position = Vector2(382, 414)
+[node name="Trash" parent="." groups=["trash"] instance=ExtResource("1_maf3u")]
+position = Vector2(1700, 999)
+scale = Vector2(5, 5)
