@@ -88,7 +88,8 @@ func place_in_slot():
 		if hovered_item_slot.items_in_slot.size() == 0:
 			hovered_item_slot.items_in_slot.append(self)
 		else:
-			queue_free()
+			if not hovered_item_slot.items_in_slot[0] == self:
+				queue_free()
 
 func offset_ingredients():
 	var ingredients = hovered_item_slot.items_in_slot
