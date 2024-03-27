@@ -71,19 +71,19 @@ scale = Vector2(5, 2.5)
 position = Vector2(420, 968)
 scale = Vector2(5, 2.5)
 
-[node name="Plate 00" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+[node name="Plate0" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(795, 715)
 scale = Vector2(1.645, 0.865)
 
-[node name="Plate 01" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+[node name="Plate1" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(951, 715)
 scale = Vector2(1.645, 0.865)
 
-[node name="Plate 02" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+[node name="Plate2" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(1093, 715)
 scale = Vector2(1.645, 0.865)
 
-[node name="Plate 03" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+[node name="Plate3" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
 position = Vector2(1249, 715)
 scale = Vector2(1.645, 0.865)
 

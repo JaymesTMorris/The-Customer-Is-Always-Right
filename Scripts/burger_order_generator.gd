@@ -1,5 +1,6 @@
 extends Node
 
+# Currently not in use.
 var burger_ingredients: Array = [
 	["Cooked Patty", "beef_patty.tscn"],
 	["Bottom Bun", "bun_bottom.tscn"],
@@ -9,6 +10,7 @@ var burger_ingredients: Array = [
 	["Tomato", "tomato.tscn"]
 ]
 
+# Currently not in use.
 var bad_burger_ingredients: Array = [
 	["Moldy Bread", "moldy_bread.tscn"],
 	["Poison Ivy", "poison_ivy.tscn"]
@@ -67,14 +69,27 @@ func print_order(order, label_name):
 
 func _on_serve_button_down(button_pressed: int):
 	var burger_order = generate_burger_order()
+	var plate
 	if button_pressed == 0:
 		print_order(burger_order, "OrderLabel0")
+		plate = get_parent().get_node("Plate0")
 	elif button_pressed == 1:
 		print_order(burger_order, "OrderLabel1")
+		plate = get_parent().get_node("Plate1")
 	elif button_pressed == 2:
 		print_order(burger_order, "OrderLabel2")
+		plate = get_parent().get_node("Plate2")
 	elif button_pressed == 3:
 		print_order(burger_order, "OrderLabel3")
+		plate = get_parent().get_node("Plate2")
+	clear_plate(plate)
+
+func clear_plate(plate):
+	for i in plate.items_in_slot.size():
+		var ingredient_on_plate = get_parent().get_node(NodePath(plate.items_in_slot[i].name))
+		if ingredient_on_plate != null:
+			ingredient_on_plate.queue_free()
+	plate.items_in_slot = []
 
 #var ingredients : Dictionary = {
 	## ID : Ingredient Name

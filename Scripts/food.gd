@@ -107,18 +107,18 @@ func _on_area_2d_mouse_entered(): # When mouse starts hovering over a food item
 		is_draggable = true
 		if not is_plated_child:
 			scale = Vector2(2.2, 2.2)
-		else:
+		elif hovered_item_slot.items_in_slot.size() != 0:
 			hovered_item_slot.items_in_slot[0].scale = Vector2(2.2, 2.2)
-		#$Sprite2D.material.set_shader_parameter("enabled", true)
+		$Sprite2D.material.set_shader_parameter("enabled", true)
 
 func _on_area_2d_mouse_exited(): # When mouse stops hovering over a food item
 	if not global.is_dragging:
 		is_draggable = false
 		if not is_plated_child:
 			scale = Vector2(2, 2)
-		else:
+		elif hovered_item_slot.items_in_slot.size() != 0:
 			hovered_item_slot.items_in_slot[0].scale = Vector2(2, 2)
-		#$Sprite2D.material.set_shader_parameter("enabled", false)
+		$Sprite2D.material.set_shader_parameter("enabled", false)
 
 func _on_area_2d_body_entered(body): # Dragged item is hovering over a 2d body (i.e. an item slot)
 	if body.is_in_group("dropable"):
