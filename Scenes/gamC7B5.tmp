@@ -139,56 +139,22 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
 text = "SERVE"
 
-[node name="OrderLabel0" type="RichTextLabel" parent="."]
+[node name="OrderLabel00" type="RichTextLabel" parent="."]
 offset_left = 754.0
 offset_top = 471.0
 offset_right = 860.0
-offset_bottom = 638.0
+offset_bottom = 603.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
 theme_override_fonts/normal_font = ExtResource("9_au3vr")
 theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
+text = "Top Bun
+Top Bun
+Top Bun
+Top Bun
+Top Bun
+Top Bun
+"
 
-[node name="OrderLabel1" type="RichTextLabel" parent="."]
-offset_left = 898.0
-offset_top = 471.0
-offset_right = 1004.0
-offset_bottom = 632.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-
-[node name="OrderLabel2" type="RichTextLabel" parent="."]
-offset_left = 1035.0
-offset_top = 471.0
-offset_right = 1141.0
-offset_bottom = 639.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-
-[node name="OrderLabel3" type="RichTextLabel" parent="."]
-offset_left = 1190.0
-offset_top = 471.0
-offset_right = 1296.0
-offset_bottom = 642.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-
-[node name="OrderGenerator" type="Node" parent="."]
+[node name="BurgerOrderGenerator" type="Node" parent="."]
 script = ExtResource("11_iswsb")
-
-[connection signal="button_down" from="ServeButton00" to="OrderLabel0" method="_on_serve_button_down" binds= [0]]
-[connection signal="button_down" from="ServeButton00" to="OrderGenerator" method="_on_serve_button_down" binds= [0]]
-[connection signal="button_down" from="ServeButton01" to="OrderGenerator" method="_on_serve_button_down" binds= [1]]
-[connection signal="button_down" from="ServeButton01" to="OrderGenerator" method="_on_serve_button_01_button_down" binds= [1]]
-[connection signal="button_down" from="ServeButton02" to="OrderGenerator" method="_on_serve_button_down" binds= [2]]
-[connection signal="button_down" from="ServeButton03" to="OrderGenerator" method="_on_serve_button_down" binds= [3]]

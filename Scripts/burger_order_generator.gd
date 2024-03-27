@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 var burger_ingredients: Array = [
 	["Cooked Patty", "beef_patty.tscn"],
@@ -14,9 +14,6 @@ var bad_burger_ingredients: Array = [
 	["Poison Ivy", "poison_ivy.tscn"]
 ]
 
-func _ready ():
-	generate_burger_order()
-
 func generate_burger_order(is_good_customer: bool = true):
 	var burger_order = ["Top Bun"] # Burger orders will always have a Top Bun
 	var good_ingredients = generate_good_burger_ingredients() # Returns 0 - 2 good ingredients
@@ -28,7 +25,6 @@ func generate_burger_order(is_good_customer: bool = true):
 	burger_order.append("Cooked Patty") # Burger orders will always have a Cooked Patty
 	burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
 	
-	print_order(burger_order)
 	return burger_order
 
 func generate_good_burger_ingredients():
@@ -63,11 +59,23 @@ func generate_bad_burger_ingredients():
 		
 	return bad_ingredients
 
-func print_order(order):
+func print_order(order, label_name):
+	get_parent().get_node(label_name).text = ""
 	for i in order.size():
-		$Label.text += order[i]
-		$Label.text += "\n"
-	
+		get_parent().get_node(label_name).text += order[i]
+		get_parent().get_node(label_name).text += "\n"
+
+func _on_serve_button_down(button_pressed: int):
+	var burger_order = generate_burger_order()
+	if button_pressed == 0:
+		print_order(burger_order, "OrderLabel0")
+	elif button_pressed == 1:
+		print_order(burger_order, "OrderLabel1")
+	elif button_pressed == 2:
+		print_order(burger_order, "OrderLabel2")
+	elif button_pressed == 3:
+		print_order(burger_order, "OrderLabel3")
+
 #var ingredients : Dictionary = {
 	## ID : Ingredient Name
 	#1 : "Patty" ,
