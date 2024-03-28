@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4oafrvpbf7nx"]
+[gd_scene load_steps=17 format=3 uid="uid://b4oafrvpbf7nx"]
 
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_aqwjp"]
 [ext_resource type="PackedScene" uid="uid://bxwn6nkhv5kys" path="res://Prefabs/item_slot.tscn" id="1_maf3u"]
 [ext_resource type="Texture2D" uid="uid://we5lb2c8tg11" path="res://Images/KitchenBackground.png" id="1_mf0fh"]
 [ext_resource type="PackedScene" uid="uid://dsabvxd1jxg2w" path="res://Prefabs/Burger/cheese.tscn" id="3_jpuij"]
@@ -26,6 +27,7 @@ texture = ExtResource("9_hw25t")
 region_rect = Rect2(145, 98, 46, 13)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_aqwjp")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_mf0fh")

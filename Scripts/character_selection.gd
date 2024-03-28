@@ -17,18 +17,22 @@ func _on_button_0_mouse_exited():
 
 
 func _on_button_1_mouse_entered():
+	audio_player.play_sfx(audio_player.button_hover_sfx)
 	get_node("Chef1").show()
 
 
 func _on_button_1_mouse_exited():
+	audio_player.play_sfx(audio_player.button_hover_sfx)
 	get_node("Chef1").hide()
 
 # On Button CLick
 func _on_button_0_pressed(): # Male Chef
+	audio_player.play_sfx(audio_player.button_click_sfx)
 	on_character_selected(0)
 
 
 func _on_button_1_pressed(): # Female Chef
+	audio_player.play_sfx(audio_player.button_click_sfx)
 	on_character_selected(1)
 
 # Other

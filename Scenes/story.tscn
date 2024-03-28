@@ -70,5 +70,7 @@ offset_right = 1759.0
 offset_bottom = 191.0
 text = "Continue"
 
+[connection signal="mouse_entered" from="StoryOutput/Next" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="StoryOutput/Next" to="." method="_next_dialogue"]
+[connection signal="mouse_entered" from="StoryOutput/Continue" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="StoryOutput/Continue" to="." method="_on_continue_pressed"]

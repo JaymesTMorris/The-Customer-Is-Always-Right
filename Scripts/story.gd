@@ -46,6 +46,7 @@ func start_story():
 	get_node("StoryOutput").text = "[center]"+dialogue[current_dialogue]+"[/center]"
 
 func _next_dialogue():
+	audio_player.play_sfx(audio_player.button_click_sfx)
 	current_dialogue += 1
 	if current_dialogue < dialogue.size():
 		get_node("StoryOutput").text = "[center]"
@@ -56,4 +57,9 @@ func _next_dialogue():
 			get_node("StoryOutput/Continue").show()
 
 func _on_continue_pressed():
+	audio_player.play_sfx(audio_player.button_click_sfx)
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+
+
+func _on_button_mouse_entered():
+	audio_player.play_sfx(audio_player.button_hover_sfx)
