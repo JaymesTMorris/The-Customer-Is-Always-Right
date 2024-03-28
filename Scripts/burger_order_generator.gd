@@ -82,7 +82,7 @@ func _on_serve_button_down(button_pressed: int):
 		plate = get_parent().get_node("Plate2")
 	elif button_pressed == 3:
 		print_order(burger_order, "OrderLabel3")
-		plate = get_parent().get_node("Plate2")
+		plate = get_parent().get_node("Plate3")
 	print("Burger Order: ", plate.burger_order)
 	print("Submitted Items: ", get_plate_as_array(plate))
 	grade_order(get_plate_as_array(plate), plate.burger_order)
