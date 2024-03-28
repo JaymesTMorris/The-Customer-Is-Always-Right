@@ -1,6 +1,6 @@
 class_name ItemSlot extends StaticBody2D
 
-@export var items_in_slot = []
+var items_in_slot = []
 var burger_order:Array = []
 
 func _ready():
