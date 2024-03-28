@@ -1,7 +1,5 @@
 extends Node
 
-var current_burger_order = []
-
 var burger_ingredients: Array = [
 	["Cooked Patty", "beef_patty.tscn"],
 	["Bottom Bun", "bun_bottom.tscn"],
@@ -85,11 +83,34 @@ func _on_serve_button_down(button_pressed: int):
 	elif button_pressed == 3:
 		print_order(burger_order, "OrderLabel3")
 		plate = get_parent().get_node("Plate2")
-	#print("Burger Order: ", get_parent().get_node(("OrderLabel"+str(button_pressed))).text)
-	print("Burger Order: ", current_burger_order)
+	print("Burger Order: ", plate.burger_order)
 	print("Submitted Items: ", get_plate_as_array(plate))
+	grade_order(get_plate_as_array(plate), plate.burger_order)
 	clear_plate(plate)
-	current_burger_order = burger_order
+	plate.burger_order = burger_order
+
+func _ready():
+	var i = 0
+	var burger_order
+	var plate
+	while i <= 3:
+		plate = get_parent().get_node(NodePath("Plate"+str(i)))
+		burger_order = generate_burger_order()
+		plate.burger_order = burger_order
+		print_order(burger_order, NodePath("OrderLabel"+str(i)))
+		
+		i+=1
+
+func grade_order(plate_array, burger_order):
+	if plate_array == burger_order:
+		global.score += 10
+	elif global.score - 5 >= 0:
+		global.score -= 5
+	update_score_label()
+
+func update_score_label():
+	var score_label = get_tree().get_root().find_child("ScoreLabel",true,false)
+	score_label.text = "[center]"+str(global.score)+"[/center]"
 
 func get_plate_as_array(plate):
 	var plate_array = []

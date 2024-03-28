@@ -1,6 +1,7 @@
 class_name ItemSlot extends StaticBody2D
 
 @export var items_in_slot = []
+var burger_order:Array = []
 
 func _ready():
 	modulate = Color(Color.MEDIUM_PURPLE, 0.45)
