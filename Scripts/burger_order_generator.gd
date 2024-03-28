@@ -117,7 +117,12 @@ func get_plate_as_array(plate):
 		var ingredient_on_plate = get_tree().get_root().find_child(NodePath(plate.items_in_slot[plated_ingredient].name),true,false)
 		for burger_ingredient in burger_ingredients.size():
 			if burger_ingredients[burger_ingredient][1] == ingredient_on_plate.food_prefab_path.get_file():
-				plate_array.append(burger_ingredients[burger_ingredient][0])
+				if ingredient_on_plate.is_raw:
+					plate_array.append("Raw Patty")
+				elif ingredient_on_plate.is_burnt:
+					plate_array.append("Burnt Food")
+				else:
+					plate_array.append(burger_ingredients[burger_ingredient][0])
 				break
 	plate_array.reverse()
 	return plate_array
@@ -128,40 +133,4 @@ func clear_plate(plate):
 		if ingredient_on_plate != null:
 			ingredient_on_plate.queue_free()
 	plate.items_in_slot = []
-
-#var ingredients : Dictionary = {
-	## ID : Ingredient Name
-	#1 : "Patty" ,
-	#2 : "Lettuce",
-	#3 : "Pickles",
-	#4 : "Tomato",
-	#5 : "Cheese",
-	#6 : "Chicken"
-	#
-#}
-#var bad_ingredients : Dictionary = {
-	#1 : "Moldy bread",
-	#2 : "Old Gum",
-	#3 : "Latex Glove",
-	#4 : "Bones"
-#}
-#
-#func _ready():
-	#$Label.text = str(generate())
-#
-#func generate():
-	#var order : Array = []
-	#var ingredient_one = ingredients.get(1)
-	#var ingredient_two = ingredients.get(randi_range(1, ingredients.size()))
-	#while ingredient_two == ingredient_one:
-		#ingredient_two = ingredients.get(randi_range(1, ingredients.size()))
-	#var ingredient_three = ingredients.get(randi_range(1, ingredients.size()))
-	#while (ingredient_three == ingredient_one) || (ingredient_three == ingredient_two):
-		#ingredient_three = ingredients.get(randi_range(1, ingredients.size()))
-	#var bad_ingredient = bad_ingredients.get(randi_range(1, bad_ingredients.size()))
-	#order.append(ingredient_one)
-	#order.append(ingredient_two)
-	#order.append(ingredient_three)
-	#order.append(bad_ingredient)
-	#return(order)
 
