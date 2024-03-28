@@ -31,20 +31,20 @@ region_rect = Rect2(145, 98, 46, 13)
 texture = ExtResource("1_mf0fh")
 centered = false
 
-[node name="Grill 00" parent="." instance=ExtResource("1_maf3u")]
+[node name="Grill 00" parent="." groups=["grill"] instance=ExtResource("1_maf3u")]
 position = Vector2(123, 793)
 scale = Vector2(4, 1.5)
 
-[node name="Grill 01" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(401, 797)
+[node name="Grill 01" parent="." groups=["grill"] instance=ExtResource("1_maf3u")]
+position = Vector2(413, 794)
 scale = Vector2(4, 1.5)
 
-[node name="Grill 02" parent="." instance=ExtResource("1_maf3u")]
+[node name="Grill 02" parent="." groups=["grill"] instance=ExtResource("1_maf3u")]
 position = Vector2(93, 921)
 scale = Vector2(4, 1.5)
 
-[node name="Grill 03" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(381, 919)
+[node name="Grill 03" parent="." groups=["grill"] instance=ExtResource("1_maf3u")]
+position = Vector2(373, 925)
 scale = Vector2(4, 1.5)
 
 [node name="Plate0" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]

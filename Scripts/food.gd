@@ -7,6 +7,8 @@ var is_inside_dropable: bool = false
 var is_not_a_clone:bool = true
 var is_plated_child:bool = false # Is plated and a child of another food.
 var is_plated_parent:bool = false # Is plated and parent of all food on plate.
+var is_raw: bool = false
+var is_burnt: bool = false
 
 var food_prefab_path: String
 var hovered_item_slot: Object
@@ -18,6 +20,8 @@ var initial_position: Vector2
 func _ready():
 	initial_position = position
 	food_prefab_path = scene_file_path
+	if food_prefab_path.get_file() == "beef_patty.tscn":
+		is_raw = true
 
 # _process is called every frame
 func _process(delta):
@@ -64,11 +68,21 @@ func stop_dragging():
 			if hovered_item_slot.is_in_group("trash"):
 				queue_free()
 				global.is_dragging = false
+			elif hovered_item_slot.is_in_group("grill"):
+				start_cooking()
 			tween.tween_property(self, "position", hovered_item_slot.position, 0.1).set_ease(Tween.EASE_OUT)
 			tween.connect("finished", tween_finished)
 		else:
 			tween.tween_property(self, "global_position", initial_position, 0.1).set_ease(Tween.EASE_OUT)
 			tween.connect("finished", func(): tween_finished(true))
+
+func start_cooking():
+	if food_prefab_path.get_file() == "beef_patty.tscn" && is_raw:
+		is_raw = false
+		$Sprite2D.texture = load("res://Images/Food/SimpleSprites/BeefPatty.png")
+	else:
+		is_burnt = true
+		$Sprite2D.texture = load("res://Images/Food/SimpleSprites/Ashes.png")
 
 func tween_finished(delete:bool = false):
 	is_draggable = false
