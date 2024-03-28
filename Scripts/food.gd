@@ -1,5 +1,6 @@
 extends Node2D
 
+
 # Variables
 var is_draggable:bool = false
 var is_inside_dropable: bool = false
@@ -37,7 +38,7 @@ func start_dragging():
 		queue_free()
 		return
 	elif is_plated_child:
-		if hovered_item_slot.items_in_slot.size() != 0: # Will never be empty. Calling this to ensure nodes are properly loaded to not throw an error.
+		if hovered_item_slot.items_in_slot.size() != 0:
 			var plated_parent = hovered_item_slot.items_in_slot[0]
 			hovered_item_slot.items_in_slot = []
 			plated_parent.queue_free()
@@ -106,30 +107,30 @@ func _on_area_2d_mouse_entered(): # When mouse starts hovering over a food item
 	if not global.is_dragging:
 		is_draggable = true
 		if not is_plated_child:
-			scale = Vector2(1.05, 1.05)
-		else:
-			hovered_item_slot.items_in_slot[0].scale = Vector2(1.05, 1.05)
+			scale = Vector2(2.2, 2.2)
+		elif hovered_item_slot.items_in_slot.size() != 0:
+			hovered_item_slot.items_in_slot[0].scale = Vector2(2.2, 2.2)
 		$Sprite2D.material.set_shader_parameter("enabled", true)
 
 func _on_area_2d_mouse_exited(): # When mouse stops hovering over a food item
 	if not global.is_dragging:
 		is_draggable = false
 		if not is_plated_child:
-			scale = Vector2(1, 1)
-		else:
-			hovered_item_slot.items_in_slot[0].scale = Vector2(1, 1)
+			scale = Vector2(2, 2)
+		elif hovered_item_slot.items_in_slot.size() != 0:
+			hovered_item_slot.items_in_slot[0].scale = Vector2(2, 2)
 		$Sprite2D.material.set_shader_parameter("enabled", false)
 
 func _on_area_2d_body_entered(body): # Dragged item is hovering over a 2d body (i.e. an item slot)
 	if body.is_in_group("dropable"):
 		is_inside_dropable = true
-		body.modulate = Color(Color.REBECCA_PURPLE, 1)
+		body.modulate = Color(Color.REBECCA_PURPLE, 0.6)
 		hovered_item_slot = body
 
 func _on_area_2d_body_exited(body): # Dragged item is no longer hovering over a 2d body (i.e. an item slot)
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
-		body.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
+		body.modulate = Color(Color.MEDIUM_PURPLE, 0.45)
 		
 func _create_clone():
 	# Initialize Clone

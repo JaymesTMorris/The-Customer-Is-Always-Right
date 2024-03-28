@@ -19,8 +19,9 @@ shader_parameter/enabled = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvkjh"]
 size = Vector2(32, 32)
 
-[node name="PoisonIvy" type="Node2D"]
-material = SubResource("ShaderMaterial_eysvk")
+[node name="TopBun" type="Node2D"]
+scale = Vector2(2, 2)
+
 script = ExtResource("1_k5534")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

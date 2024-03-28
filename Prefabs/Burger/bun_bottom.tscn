@@ -13,7 +13,8 @@ shader_parameter/enabled = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvkjh"]
 size = Vector2(32, 32)
 
-[node name="PoisonIvy" type="Node2D"]
+[node name="BottomBun" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_e5ksm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
