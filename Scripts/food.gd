@@ -40,6 +40,7 @@ func handle_dragging():
 			stop_dragging()
 
 func start_dragging():
+	stop_cooking()
 	if is_plated_parent:
 		hovered_item_slot.items_in_slot = []
 		queue_free()
