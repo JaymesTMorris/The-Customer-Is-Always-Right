@@ -1,5 +1,6 @@
 extends Node2D
 
+
 # Variables
 var is_draggable:bool = false
 var is_inside_dropable: bool = false

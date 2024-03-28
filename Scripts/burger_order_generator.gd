@@ -1,6 +1,7 @@
 extends Node
 
-# Currently not in use.
+var current_burger_order = []
+
 var burger_ingredients: Array = [
 	["Cooked Patty", "beef_patty.tscn"],
 	["Bottom Bun", "bun_bottom.tscn"],
@@ -68,8 +69,10 @@ func print_order(order, label_name):
 		get_parent().get_node(label_name).text += "\n"
 
 func _on_serve_button_down(button_pressed: int):
-	var burger_order = generate_burger_order()
+	var burger_order
 	var plate
+	
+	burger_order = generate_burger_order()
 	if button_pressed == 0:
 		print_order(burger_order, "OrderLabel0")
 		plate = get_parent().get_node("Plate0")
@@ -82,7 +85,22 @@ func _on_serve_button_down(button_pressed: int):
 	elif button_pressed == 3:
 		print_order(burger_order, "OrderLabel3")
 		plate = get_parent().get_node("Plate2")
+	#print("Burger Order: ", get_parent().get_node(("OrderLabel"+str(button_pressed))).text)
+	print("Burger Order: ", current_burger_order)
+	print("Submitted Items: ", get_plate_as_array(plate))
 	clear_plate(plate)
+	current_burger_order = burger_order
+
+func get_plate_as_array(plate):
+	var plate_array = []
+	for plated_ingredient in plate.items_in_slot.size():
+		var ingredient_on_plate = get_tree().get_root().find_child(NodePath(plate.items_in_slot[plated_ingredient].name),true,false)
+		for burger_ingredient in burger_ingredients.size():
+			if burger_ingredients[burger_ingredient][1] == ingredient_on_plate.food_prefab_path.get_file():
+				plate_array.append(burger_ingredients[burger_ingredient][0])
+				break
+	plate_array.reverse()
+	return plate_array
 
 func clear_plate(plate):
 	for i in plate.items_in_slot.size():
