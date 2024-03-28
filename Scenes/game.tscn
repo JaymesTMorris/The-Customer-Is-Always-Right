@@ -175,6 +175,8 @@ bbcode_enabled = true
 [node name="OrderGenerator" type="Node" parent="."]
 script = ExtResource("11_iswsb")
 
+[node name="Timer" type="Timer" parent="OrderGenerator"]
+
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
 offset_top = 51.0
 offset_right = 1921.0

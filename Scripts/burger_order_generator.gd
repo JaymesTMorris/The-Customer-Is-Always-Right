@@ -15,6 +15,8 @@ var bad_burger_ingredients: Array = [
 	["Poison Ivy", "poison_ivy.tscn"]
 ]
 
+var timer: Timer
+
 func generate_burger_order(is_good_customer: bool = true):
 	var burger_order = ["Top Bun"] # Burger orders will always have a Top Bun
 	var good_ingredients = generate_good_burger_ingredients() # Returns 0 - 2 good ingredients
@@ -66,39 +68,53 @@ func print_order(order, label_name):
 		get_parent().get_node(label_name).text += "\n"
 
 func _on_serve_button_down(button_pressed: int):
-	var burger_order
-	var plate
-	
-	burger_order = generate_burger_order()
-	if button_pressed == 0:
-		print_order(burger_order, "OrderLabel0")
-		plate = get_parent().get_node("Plate0")
-	elif button_pressed == 1:
-		print_order(burger_order, "OrderLabel1")
-		plate = get_parent().get_node("Plate1")
-	elif button_pressed == 2:
-		print_order(burger_order, "OrderLabel2")
-		plate = get_parent().get_node("Plate2")
-	elif button_pressed == 3:
-		print_order(burger_order, "OrderLabel3")
-		plate = get_parent().get_node("Plate3")
+	var path_to_plate = NodePath("Plate"+str(button_pressed))
+	var plate = get_parent().get_node(path_to_plate)
+	var path_to_label = NodePath("OrderLabel"+str(button_pressed))
+	var order_label = get_parent().get_node(path_to_label)
 	print("Burger Order: ", plate.burger_order)
 	print("Submitted Items: ", get_plate_as_array(plate))
 	grade_order(get_plate_as_array(plate), plate.burger_order)
-	clear_plate(plate)
-	plate.burger_order = burger_order
+	clear_plate(path_to_plate)
+	plate.burger_order = []
+	order_label.text = ""
 
 func _ready():
-	var i = 0
-	var burger_order
+	_start_initial_timer()
+
+func _start_initial_timer():
+	timer = $Timer
+	timer.connect("timeout", _on_timer_timeout)
+	timer.start(_random_num_in_range(5, 20))
+
+func _random_num_in_range (min, max):
+	var rng = RandomNumberGenerator.new()
+	var random_number = rng.randi_range(min, max)
+	return random_number
+
+func _on_timer_timeout():
+	_fill_random_order_label()
+
+func _fill_random_order_label():
+	var available_order_labels = [0,1,2,3]
+	var path_to_plate
 	var plate
-	while i <= 3:
-		plate = get_parent().get_node(NodePath("Plate"+str(i)))
-		burger_order = generate_burger_order()
-		plate.burger_order = burger_order
-		print_order(burger_order, NodePath("OrderLabel"+str(i)))
-		
-		i+=1
+	var path_to_label
+	var order_label
+	var burger_order
+	available_order_labels.shuffle()
+	while available_order_labels.size() > 0:
+		path_to_plate = NodePath("Plate"+str(available_order_labels[0]))
+		plate = get_parent().get_node(path_to_plate)
+		path_to_label = NodePath("OrderLabel"+str(available_order_labels[0]))
+		order_label = get_parent().get_node(path_to_label)
+		if order_label.text != "": # Check if plate already has an order
+			available_order_labels.remove_at(0)
+		else:
+			burger_order = generate_burger_order()
+			plate.burger_order = burger_order
+			print_order(burger_order, path_to_label)
+			break
 
 func grade_order(plate_array, burger_order):
 	if plate_array == burger_order:
@@ -127,7 +143,8 @@ func get_plate_as_array(plate):
 	plate_array.reverse()
 	return plate_array
 
-func clear_plate(plate):
+func clear_plate(path_to_plate):
+	var plate = get_parent().get_node(path_to_plate)
 	for i in plate.items_in_slot.size():
 		var ingredient_on_plate = get_parent().get_node(NodePath(plate.items_in_slot[i].name))
 		if ingredient_on_plate != null:
