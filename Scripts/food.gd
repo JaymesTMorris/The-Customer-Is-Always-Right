@@ -80,7 +80,7 @@ func tween_finished(delete:bool = false):
 
 func place_in_slot():
 	if hovered_item_slot.is_in_group("plate"):
-		if hovered_item_slot.items_in_slot.size() < 6:
+		if hovered_item_slot.items_in_slot.size() <= 6:
 			hovered_item_slot.items_in_slot.append(self)
 			offset_ingredients()
 		else:

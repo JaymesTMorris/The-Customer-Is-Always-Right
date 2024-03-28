@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/food.gd" id="1_klaoi"]
 [ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_224bx"]
-[ext_resource type="Texture2D" uid="uid://c2wcb1q07gu1a" path="res://Images/Food/SimpleSprites/BeefPatty.png" id="3_lgps3"]
+[ext_resource type="Texture2D" uid="uid://bv47225i1yxa7" path="res://Images/Food/SimpleSprites/RawBeefPatty.png" id="3_nhq4r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
 shader = ExtResource("2_224bx")
@@ -13,7 +13,7 @@ shader_parameter/enabled = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvkjh"]
 size = Vector2(32, 32)
 
-[node name="CookedBeefPatty" type="Node2D"]
+[node name="BeefPatty" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_klaoi")
 
@@ -21,7 +21,7 @@ script = ExtResource("1_klaoi")
 material = SubResource("ShaderMaterial_rgeuv")
 position = Vector2(4.76837e-07, 4.76837e-07)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_lgps3")
+texture = ExtResource("3_nhq4r")
 
 [node name="Area2D" type="Area2D" parent="."]
 
