@@ -15,11 +15,14 @@ var hovered_item_slot: Object
 var clone: Object
 var mouse_offset: Vector2
 var initial_position: Vector2
+var timer: Timer
 
 # Initialization
 func _ready():
 	initial_position = position
 	food_prefab_path = scene_file_path
+	timer = $Timer
+	timer.connect("timeout", _on_timer_timeout)
 	if food_prefab_path.get_file() == "beef_patty.tscn":
 		is_raw = true
 
@@ -77,12 +80,19 @@ func stop_dragging():
 			tween.connect("finished", func(): tween_finished(true))
 
 func start_cooking():
+	timer.start(5)
+	
+func stop_cooking():
+	timer.stop()
+
+func _on_timer_timeout():
 	if food_prefab_path.get_file() == "beef_patty.tscn" && is_raw:
 		is_raw = false
 		$Sprite2D.texture = load("res://Images/Food/SimpleSprites/BeefPatty.png")
 	else:
 		is_burnt = true
 		$Sprite2D.texture = load("res://Images/Food/SimpleSprites/Ashes.png")
+		stop_cooking()
 
 func tween_finished(delete:bool = false):
 	is_draggable = false
