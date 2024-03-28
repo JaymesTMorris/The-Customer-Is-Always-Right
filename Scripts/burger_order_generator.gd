@@ -32,20 +32,19 @@ func generate_good_burger_ingredients():
 	var good_ingredients = []
 	var current_ingredients_on_burger = 3 # Burgers are always have 2 buns and 1 patty
 	
-	while current_ingredients_on_burger < 5:
-		if randi() % 2 == 0: # 50% for burger to have Tomato
-			good_ingredients.append("Tomato")
-			current_ingredients_on_burger += 1
-		if randi() % 2 == 0: # 50% for burger to have Lettuce
-			good_ingredients.append("Lettuce")
-			current_ingredients_on_burger += 1
-		if randi() % 2 == 0: # 50% for burger to have Cheese
-			good_ingredients.append("Cheese")
-			current_ingredients_on_burger += 1
-		if randi() % 2 == 0: # 50% for burger to have Cheese (or extra cheese)
-			good_ingredients.append("Cheese")
-			current_ingredients_on_burger += 1
-		break
+	if randi() % 2 == 0: # 50% for burger to have Tomato
+		good_ingredients.append("Tomato")
+		current_ingredients_on_burger += 1
+	if randi() % 2 == 0: # 50% for burger to have Lettuce
+		good_ingredients.append("Lettuce")
+		current_ingredients_on_burger += 1
+	if randi() % 2 == 0 && current_ingredients_on_burger < 5: # 50% for burger to have Cheese
+		good_ingredients.append("Cheese")
+		current_ingredients_on_burger += 1
+	if randi() % 2 == 0 && current_ingredients_on_burger < 5: # 50% for burger to have Cheese (or extra cheese)
+		good_ingredients.append("Cheese")
+		current_ingredients_on_burger += 1
+	print()
 		
 	return good_ingredients
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4oafrvpbf7nx"]
+[gd_scene load_steps=16 format=3 uid="uid://b4oafrvpbf7nx"]
 
-[ext_resource type="Texture2D" uid="uid://dwimjvpfld51p" path="res://Images/KitchenBackground2.png" id="1_e82k5"]
 [ext_resource type="PackedScene" uid="uid://bxwn6nkhv5kys" path="res://Prefabs/item_slot.tscn" id="1_maf3u"]
+[ext_resource type="Texture2D" uid="uid://we5lb2c8tg11" path="res://Images/KitchenBackground.png" id="1_mf0fh"]
 [ext_resource type="PackedScene" uid="uid://dsabvxd1jxg2w" path="res://Prefabs/Burger/cheese.tscn" id="3_jpuij"]
 [ext_resource type="PackedScene" uid="uid://2iutkhiiqh1x" path="res://Prefabs/Burger/lettuce.tscn" id="4_j44t4"]
 [ext_resource type="PackedScene" uid="uid://dotc37sleiqnw" path="res://Prefabs/Burger/tomato.tscn" id="5_27kjg"]
+[ext_resource type="FontFile" uid="uid://djbbywa50mfgv" path="res://Fonts/Comic Sans MS/COMICBD.TTF" id="5_pxhw1"]
 [ext_resource type="PackedScene" uid="uid://c7qj0k5ruoe13" path="res://Prefabs/Burger/beef_patty.tscn" id="6_vshen"]
 [ext_resource type="PackedScene" uid="uid://tf8b8ha3nly8" path="res://Prefabs/Burger/bun_bottom.tscn" id="7_1rqiq"]
 [ext_resource type="PackedScene" uid="uid://b5b0vot3w4250" path="res://Prefabs/Burger/bun_top.tscn" id="8_e0ye7"]
@@ -27,20 +28,182 @@ region_rect = Rect2(145, 98, 46, 13)
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(1.17416, 1.154)
-texture = ExtResource("1_e82k5")
+texture = ExtResource("1_mf0fh")
 centered = false
 
-[node name="CookedBeefPatty" parent="." instance=ExtResource("6_vshen")]
+[node name="Grill 00" parent="." groups=["grill"] instance=ExtResource("1_maf3u")]
+position = Vector2(123, 793)
+scale = Vector2(4, 1.5)
+
+[node name="Grill 01" parent="." groups=["grill"] instance=ExtResource("1_maf3u")]
+position = Vector2(413, 794)
+scale = Vector2(4, 1.5)
+
+[node name="Grill 02" parent="." groups=["grill"] instance=ExtResource("1_maf3u")]
+position = Vector2(93, 921)
+scale = Vector2(4, 1.5)
+
+[node name="Grill 03" parent="." groups=["grill"] instance=ExtResource("1_maf3u")]
+position = Vector2(373, 925)
+scale = Vector2(4, 1.5)
+
+[node name="Plate0" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+position = Vector2(737, 527)
+scale = Vector2(1.98, 0.865)
+
+[node name="Plate1" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+position = Vector2(898, 527)
+scale = Vector2(1.98, 0.865)
+
+[node name="Plate2" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+position = Vector2(1071, 527)
+scale = Vector2(1.98, 0.865)
+
+[node name="Plate3" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
+position = Vector2(1241, 524)
+scale = Vector2(1.98, 0.865)
+
+[node name="Trash" parent="." groups=["trash"] instance=ExtResource("1_maf3u")]
+position = Vector2(1477, 974)
+scale = Vector2(5, 2.28)
+
+[node name="ServeButton00" type="Button" parent="."]
+offset_left = 684.0
+offset_top = 548.0
+offset_right = 789.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("9_au3vr")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
+text = "SERVE"
+
+[node name="ServeButton01" type="Button" parent="."]
+offset_left = 848.0
+offset_top = 547.0
+offset_right = 953.0
+offset_bottom = 576.0
+theme_override_fonts/font = ExtResource("9_au3vr")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
+text = "SERVE"
+
+[node name="ServeButton02" type="Button" parent="."]
+offset_left = 1019.0
+offset_top = 548.0
+offset_right = 1124.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("9_au3vr")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
+text = "SERVE"
+
+[node name="ServeButton03" type="Button" parent="."]
+offset_left = 1188.0
+offset_top = 545.0
+offset_right = 1293.0
+offset_bottom = 574.0
+theme_override_fonts/font = ExtResource("9_au3vr")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
+text = "SERVE"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 655.0
+offset_top = 580.0
+offset_right = 1314.0
+offset_bottom = 749.0
+
+[node name="OrderLabel0" type="RichTextLabel" parent="."]
+offset_left = 680.0
+offset_top = 585.0
+offset_right = 786.0
+offset_bottom = 752.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_pxhw1")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+
+[node name="OrderLabel1" type="RichTextLabel" parent="."]
+offset_left = 846.0
+offset_top = 585.0
+offset_right = 952.0
+offset_bottom = 746.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_pxhw1")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+
+[node name="OrderLabel2" type="RichTextLabel" parent="."]
+offset_left = 1020.0
+offset_top = 586.0
+offset_right = 1126.0
+offset_bottom = 754.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_pxhw1")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+
+[node name="OrderLabel3" type="RichTextLabel" parent="."]
+offset_left = 1189.0
+offset_top = 584.0
+offset_right = 1295.0
+offset_bottom = 755.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_pxhw1")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+
+[node name="OrderGenerator" type="Node" parent="."]
+script = ExtResource("11_iswsb")
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+offset_top = 51.0
+offset_right = 1921.0
+offset_bottom = 129.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("9_au3vr")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]0[/center]"
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1920.0
+offset_bottom = 77.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("9_au3vr")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]SCORE[/center]"
+
+[node name="BeefPatty" parent="." instance=ExtResource("6_vshen")]
 position = Vector2(94, 343)
 scale = Vector2(2.34832, 2.308)
 
 [node name="BottomBun" parent="." instance=ExtResource("7_1rqiq")]
-position = Vector2(1610, 333)
+position = Vector2(1541, 332)
 scale = Vector2(2.34832, 2.308)
 
 [node name="TopBun" parent="." instance=ExtResource("8_e0ye7")]
-position = Vector2(1489, 333)
+position = Vector2(1403, 338)
 scale = Vector2(2.34832, 2.308)
 
 [node name="Cheese" parent="." instance=ExtResource("3_jpuij")]
@@ -54,159 +217,6 @@ scale = Vector2(2.34832, 2.308)
 [node name="Tomato" parent="." instance=ExtResource("5_27kjg")]
 position = Vector2(265, 499)
 scale = Vector2(2.34832, 2.308)
-
-[node name="Grill 00" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(151, 840)
-scale = Vector2(5, 2.5)
-
-[node name="Grill 01" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(452, 802)
-scale = Vector2(5, 2.5)
-
-[node name="Grill 02" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(109, 1023)
-scale = Vector2(5, 2.5)
-
-[node name="Grill 03" parent="." instance=ExtResource("1_maf3u")]
-position = Vector2(420, 968)
-scale = Vector2(5, 2.5)
-
-[node name="Plate0" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
-position = Vector2(795, 715)
-scale = Vector2(1.645, 0.865)
-
-[node name="Plate1" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
-position = Vector2(951, 715)
-scale = Vector2(1.645, 0.865)
-
-[node name="Plate2" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
-position = Vector2(1093, 715)
-scale = Vector2(1.645, 0.865)
-
-[node name="Plate3" parent="." groups=["plate"] instance=ExtResource("1_maf3u")]
-position = Vector2(1249, 715)
-scale = Vector2(1.645, 0.865)
-
-[node name="Trash" parent="." groups=["trash"] instance=ExtResource("1_maf3u")]
-position = Vector2(1700, 999)
-scale = Vector2(5, 5)
-
-[node name="ServeButton00" type="Button" parent="."]
-offset_left = 741.0
-offset_top = 736.0
-offset_right = 846.0
-offset_bottom = 765.0
-theme_override_fonts/font = ExtResource("9_au3vr")
-theme_override_font_sizes/font_size = 11
-theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
-text = "SERVE"
-
-[node name="ServeButton01" type="Button" parent="."]
-offset_left = 901.0
-offset_top = 735.0
-offset_right = 1006.0
-offset_bottom = 764.0
-theme_override_fonts/font = ExtResource("9_au3vr")
-theme_override_font_sizes/font_size = 11
-theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
-text = "SERVE"
-
-[node name="ServeButton02" type="Button" parent="."]
-offset_left = 1041.0
-offset_top = 736.0
-offset_right = 1146.0
-offset_bottom = 765.0
-theme_override_fonts/font = ExtResource("9_au3vr")
-theme_override_font_sizes/font_size = 11
-theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
-text = "SERVE"
-
-[node name="ServeButton03" type="Button" parent="."]
-offset_left = 1196.0
-offset_top = 736.0
-offset_right = 1301.0
-offset_bottom = 765.0
-theme_override_fonts/font = ExtResource("9_au3vr")
-theme_override_font_sizes/font_size = 11
-theme_override_styles/normal = SubResource("StyleBoxTexture_4kmm2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
-text = "SERVE"
-
-[node name="OrderLabel0" type="RichTextLabel" parent="."]
-offset_left = 754.0
-offset_top = 471.0
-offset_right = 860.0
-offset_bottom = 638.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-
-[node name="OrderLabel1" type="RichTextLabel" parent="."]
-offset_left = 898.0
-offset_top = 471.0
-offset_right = 1004.0
-offset_bottom = 632.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-
-[node name="OrderLabel2" type="RichTextLabel" parent="."]
-offset_left = 1035.0
-offset_top = 471.0
-offset_right = 1141.0
-offset_bottom = 639.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-
-[node name="OrderLabel3" type="RichTextLabel" parent="."]
-offset_left = 1190.0
-offset_top = 471.0
-offset_right = 1296.0
-offset_bottom = 642.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-
-[node name="OrderGenerator" type="Node" parent="."]
-script = ExtResource("11_iswsb")
-
-[node name="ScoreLabel" type="RichTextLabel" parent="."]
-offset_left = 747.0
-offset_top = 51.0
-offset_right = 1315.0
-offset_bottom = 129.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 48
-bbcode_enabled = true
-text = "[center]0[/center]"
-
-[node name="Label" type="RichTextLabel" parent="."]
-offset_left = 748.0
-offset_top = -1.0
-offset_right = 1316.0
-offset_bottom = 77.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("9_au3vr")
-theme_override_font_sizes/normal_font_size = 48
-bbcode_enabled = true
-text = "[center]SCORE[/center]"
 
 [connection signal="button_down" from="ServeButton00" to="OrderGenerator" method="_on_serve_button_down" binds= [0]]
 [connection signal="button_down" from="ServeButton01" to="OrderGenerator" method="_on_serve_button_down" binds= [1]]
