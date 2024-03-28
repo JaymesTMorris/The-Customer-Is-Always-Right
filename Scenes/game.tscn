@@ -30,30 +30,6 @@ region_rect = Rect2(145, 98, 46, 13)
 texture = ExtResource("1_mf0fh")
 centered = false
 
-[node name="CookedBeefPatty" parent="." instance=ExtResource("6_vshen")]
-position = Vector2(94, 343)
-scale = Vector2(2.34832, 2.308)
-
-[node name="BottomBun" parent="." instance=ExtResource("7_1rqiq")]
-position = Vector2(1541, 332)
-scale = Vector2(2.34832, 2.308)
-
-[node name="TopBun" parent="." instance=ExtResource("8_e0ye7")]
-position = Vector2(1403, 338)
-scale = Vector2(2.34832, 2.308)
-
-[node name="Cheese" parent="." instance=ExtResource("3_jpuij")]
-position = Vector2(96, 502)
-scale = Vector2(2.34832, 2.308)
-
-[node name="Lettuce" parent="." instance=ExtResource("4_j44t4")]
-position = Vector2(180, 500)
-scale = Vector2(2.34832, 2.308)
-
-[node name="Tomato" parent="." instance=ExtResource("5_27kjg")]
-position = Vector2(265, 499)
-scale = Vector2(2.34832, 2.308)
-
 [node name="Grill 00" parent="." instance=ExtResource("1_maf3u")]
 position = Vector2(123, 793)
 scale = Vector2(4, 1.5)
@@ -138,6 +114,13 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gg1g0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_71fva")
 text = "SERVE"
 
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 655.0
+offset_top = 580.0
+offset_right = 1314.0
+offset_bottom = 721.0
+
 [node name="OrderLabel0" type="RichTextLabel" parent="."]
 offset_left = 680.0
 offset_top = 580.0
@@ -186,9 +169,8 @@ bbcode_enabled = true
 script = ExtResource("11_iswsb")
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
-offset_left = 747.0
 offset_top = 51.0
-offset_right = 1315.0
+offset_right = 1921.0
 offset_bottom = 129.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("9_au3vr")
@@ -197,15 +179,39 @@ bbcode_enabled = true
 text = "[center]0[/center]"
 
 [node name="Label" type="RichTextLabel" parent="."]
-offset_left = 748.0
+offset_left = 1.0
 offset_top = -1.0
-offset_right = 1316.0
+offset_right = 1920.0
 offset_bottom = 77.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("9_au3vr")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "[center]SCORE[/center]"
+
+[node name="CookedBeefPatty" parent="." instance=ExtResource("6_vshen")]
+position = Vector2(94, 343)
+scale = Vector2(2.34832, 2.308)
+
+[node name="BottomBun" parent="." instance=ExtResource("7_1rqiq")]
+position = Vector2(1541, 332)
+scale = Vector2(2.34832, 2.308)
+
+[node name="TopBun" parent="." instance=ExtResource("8_e0ye7")]
+position = Vector2(1403, 338)
+scale = Vector2(2.34832, 2.308)
+
+[node name="Cheese" parent="." instance=ExtResource("3_jpuij")]
+position = Vector2(96, 502)
+scale = Vector2(2.34832, 2.308)
+
+[node name="Lettuce" parent="." instance=ExtResource("4_j44t4")]
+position = Vector2(180, 500)
+scale = Vector2(2.34832, 2.308)
+
+[node name="Tomato" parent="." instance=ExtResource("5_27kjg")]
+position = Vector2(265, 499)
+scale = Vector2(2.34832, 2.308)
 
 [connection signal="button_down" from="ServeButton00" to="OrderGenerator" method="_on_serve_button_down" binds= [0]]
 [connection signal="button_down" from="ServeButton01" to="OrderGenerator" method="_on_serve_button_down" binds= [1]]
