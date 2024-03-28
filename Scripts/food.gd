@@ -40,7 +40,10 @@ func handle_dragging():
 			stop_dragging()
 
 func start_dragging():
-	stop_cooking()
+	if hovered_item_slot == null:
+		stop_cooking("")
+	else:
+		stop_cooking(hovered_item_slot.name)
 	if is_plated_parent:
 		hovered_item_slot.items_in_slot = []
 		queue_free()
@@ -73,17 +76,33 @@ func stop_dragging():
 				queue_free()
 				global.is_dragging = false
 			elif hovered_item_slot.is_in_group("grill"):
-				start_cooking()
+				start_cooking(hovered_item_slot.name)
 			tween.tween_property(self, "position", hovered_item_slot.position, 0.1).set_ease(Tween.EASE_OUT)
 			tween.connect("finished", tween_finished)
 		else:
 			tween.tween_property(self, "global_position", initial_position, 0.1).set_ease(Tween.EASE_OUT)
 			tween.connect("finished", func(): tween_finished(true))
 
-func start_cooking():
+func start_cooking(grill_name):
+	if grill_name == "Grill 00":
+		global.is_something_cooking_on_grill0 = true
+	elif grill_name == "Grill 01":
+		global.is_something_cooking_on_grill1 = true
+	elif grill_name == "Grill 02":
+		global.is_something_cooking_on_grill2 = true
+	elif grill_name == "Grill 03":
+		global.is_something_cooking_on_grill3 = true
 	timer.start(5)
 	
-func stop_cooking():
+func stop_cooking(grill_name):
+	if grill_name == "Grill 00":
+		global.is_something_cooking_on_grill0 = false
+	elif grill_name == "Grill 01":
+		global.is_something_cooking_on_grill1 = false
+	elif grill_name == "Grill 02":
+		global.is_something_cooking_on_grill2 = false
+	elif grill_name == "Grill 03":
+		global.is_something_cooking_on_grill3 = false
 	timer.stop()
 
 func _on_timer_timeout():
@@ -93,7 +112,7 @@ func _on_timer_timeout():
 	else:
 		is_burnt = true
 		$Sprite2D.texture = load("res://Images/Food/SimpleSprites/Ashes.png")
-		stop_cooking()
+		stop_cooking(hovered_item_slot.name)
 
 func tween_finished(delete:bool = false):
 	is_draggable = false

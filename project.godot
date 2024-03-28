@@ -19,6 +19,7 @@ config/icon="res://Images/icon.svg"
 
 global="*res://Scripts/global.gd"
 player="*res://Scripts/player.gd"
+audio_player="*res://Prefabs/audio_player.tscn"
 
 [display]
 
