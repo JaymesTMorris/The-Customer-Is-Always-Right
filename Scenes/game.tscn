@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4oafrvpbf7nx"]
+[gd_scene load_steps=18 format=3 uid="uid://b4oafrvpbf7nx"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_aqwjp"]
 [ext_resource type="PackedScene" uid="uid://bxwn6nkhv5kys" path="res://Prefabs/item_slot.tscn" id="1_maf3u"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://bsel54ud03407" path="res://Fonts/Comic Sans MS/COMIC.TTF" id="9_au3vr"]
 [ext_resource type="Texture2D" uid="uid://dln2ty2s61bfb" path="res://Images/GUI/GUI.png" id="9_hw25t"]
 [ext_resource type="Script" path="res://Scripts/burger_order_generator.gd" id="11_iswsb"]
+[ext_resource type="PackedScene" uid="uid://vfj60vmr2oyq" path="res://Prefabs/poison_ivy.tscn" id="14_3fa8r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4kmm2"]
 texture = ExtResource("9_hw25t")
@@ -220,6 +221,10 @@ scale = Vector2(2.34832, 2.308)
 
 [node name="Tomato" parent="." instance=ExtResource("5_27kjg")]
 position = Vector2(265, 499)
+scale = Vector2(2.34832, 2.308)
+
+[node name="PoisonIvy" parent="." instance=ExtResource("14_3fa8r")]
+position = Vector2(1533, 650)
 scale = Vector2(2.34832, 2.308)
 
 [connection signal="button_down" from="ServeButton00" to="OrderGenerator" method="_on_serve_button_down" binds= [0]]

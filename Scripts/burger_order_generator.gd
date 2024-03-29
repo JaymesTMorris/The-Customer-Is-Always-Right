@@ -9,13 +9,13 @@ var burger_ingredients: Array = [
 	["Tomato", "tomato.tscn"]
 ]
 
-# Currently not in use.
+# Work in progress
 var bad_burger_ingredients: Array = [
-	["Moldy Bread", "moldy_bread.tscn"],
+	#["Moldy Bread", "moldy_bread.tscn"],
 	["Poison Ivy", "poison_ivy.tscn"]
 ]
 
-var timer: Timer
+var timer : Timer
 
 func generate_burger_order(is_good_customer: bool = true):
 	var burger_order = ["Top Bun"] # Burger orders will always have a Top Bun
@@ -54,10 +54,10 @@ func generate_bad_burger_ingredients():
 	var bad_ingredients = []
 	
 	# 50% for burger to have Moldy Bread or Poison Ivy
-	if randi() % 2 == 0: 
-		bad_ingredients.append("Moldy Bread")
-	else:
-		bad_ingredients.append("Poison Ivy")
+	#if randi() % 2 == 0: 
+	#	bad_ingredients.append("Moldy Bread")
+	#else:
+	bad_ingredients.append("Poison Ivy")
 		
 	return bad_ingredients
 
@@ -102,6 +102,7 @@ func _fill_random_order_label():
 	var path_to_label
 	var order_label
 	var burger_order
+	var coinflip = randi_range(0,1)
 	available_order_labels.shuffle()
 	while available_order_labels.size() > 0:
 		path_to_plate = NodePath("Plate"+str(available_order_labels[0]))
@@ -111,13 +112,18 @@ func _fill_random_order_label():
 		if order_label.text != "": # Check if plate already has an order
 			available_order_labels.remove_at(0)
 		else:
-			burger_order = generate_burger_order()
+			if coinflip == 1:
+				print("Bad Customer")
+				burger_order = generate_burger_order(false)
+			else:
+				print("Good Customer")
+				burger_order = generate_burger_order(true)
 			plate.burger_order = burger_order
 			print_order(burger_order, path_to_label)
 			break
 
 func grade_order(plate_array, burger_order):
-	if plate_array == burger_order:
+	if (plate_array != []) && plate_array == burger_order:
 		global.score += 10
 	elif global.score - 5 >= 0:
 		global.score -= 5
