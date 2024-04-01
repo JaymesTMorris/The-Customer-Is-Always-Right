@@ -140,6 +140,9 @@ func get_plate_as_array(plate):
 				else:
 					plate_array.append(burger_ingredients[burger_ingredient][0])
 				break
+		for bad_ingredient in bad_burger_ingredients.size():
+			if bad_burger_ingredients[bad_ingredient][1] == ingredient_on_plate.food_prefab_path.get_file():
+				plate_array.append(bad_burger_ingredients[bad_ingredient][0])
 	plate_array.reverse()
 	return plate_array
 
