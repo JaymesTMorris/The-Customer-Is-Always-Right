@@ -1,5 +1,15 @@
 extends Node
 
+var map_data = {\
+"Grill1": [],
+"Grill2": [],
+"Grill3": [],
+"Grill4": [],
+"Plate1": [],
+"Plate2": [],
+"Plate3": [],
+"Plate4": []}
+
 var is_dragging = false
 var score = 0
 var is_something_cooking = false
