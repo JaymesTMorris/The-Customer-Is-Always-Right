@@ -51,7 +51,7 @@ func _ready():
 	ready_sizzle_sfx_player()
 	
 func _process(delta):
-	if global.is_something_cooking && not $Sizzle_SFX_Player.playing:
+	if (global.items_on_grill > 0) && not $Sizzle_SFX_Player.playing:
 		$Sizzle_SFX_Player.play()
-	elif not global.is_something_cooking:
+	elif global.items_on_grill == 0:
 		$Sizzle_SFX_Player.stop()
