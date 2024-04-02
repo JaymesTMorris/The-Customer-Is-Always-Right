@@ -10,7 +10,8 @@ func generate_burger_order(is_good_customer: bool = true):
 	burger_order.append_array(good_ingredients)
 	if not is_good_customer:
 		burger_order.append_array(bad_ingredients) 
-	burger_order.append("Beef Patty") # Burger orders will always have a Cooked Patty
+	else:
+		burger_order.append("Beef Patty") # Only good customers get a normal cooked patty (:
 	burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
 	
 	return burger_order
@@ -38,11 +39,16 @@ func generate_good_burger_ingredients():
 func generate_bad_burger_ingredients():
 	var bad_ingredients = []
 	
-	# 50% for burger to have Moldy Bread or Poison Ivy
+	# 50% for bad burger to have Ashes (:
 	if randi() % 2 == 0: 
-		bad_ingredients.append("Moldy Bread")
+		bad_ingredients.append("Ashes")
+		
+	# Bad burgers will have either be raw or burnt
+	if randi() % 2 == 0: 
+		bad_ingredients.append("Raw Beef Patty")
 	else:
-		bad_ingredients.append("Poison Ivy")
+		bad_ingredients.append("Burnt Beef Patty")
+		
 		
 	return bad_ingredients
 
@@ -77,7 +83,7 @@ func _ready():
 func _start_initial_timer():
 	timer = $Timer
 	timer.connect("timeout", _on_timer_timeout)
-	timer.start(_random_num_in_range(5, 20))
+	timer.start(_random_num_in_range(3, 17))
 
 func _random_num_in_range (min, max):
 	var rng = RandomNumberGenerator.new()
@@ -103,7 +109,10 @@ func _fill_random_order_label():
 		if order_label.text != "": # Check if plate already has an order
 			available_order_labels.remove_at(0)
 		else:
-			burger_order = generate_burger_order()
+			var _is_good: bool = true
+			if randi() % 3 == 0: # About a 33% for a burger customer to be bad
+				_is_good = false
+			burger_order = generate_burger_order(_is_good)
 			global.map_data[plate.name+"_Order"] = burger_order
 			print_order(burger_order, path_to_label)
 			break
