@@ -28,12 +28,12 @@ func _on_timer_timeout(grill_name):
 	var food_in_grill
 	if grill.find_child("Icon", true, false).texture != null:
 		food_in_grill = grill.find_child("Icon", true, false).texture.resource_path.get_file().get_basename()
-		if food_in_grill == "RawBeefPatty":
-			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/HalfCookedBeefPatty.png")
-		elif food_in_grill == "HalfCookedBeefPatty":
-			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/BeefPatty.png")
-		elif food_in_grill == "BeefPatty":
-			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/BurntBeefPatty.png")
+		if food_in_grill == "Raw Beef Patty":
+			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/Half Cooked Beef Patty.png")
+		elif food_in_grill == "Half Cooked Beef Patty":
+			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/Beef Patty.png")
+		elif food_in_grill == "Beef Patty":
+			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/Burnt Beef Patty.png")
 		else:
 			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/Ashes.png")
 

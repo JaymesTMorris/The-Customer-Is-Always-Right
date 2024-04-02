@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://285uq0hr5chh"
-path="res://.godot/imported/BeefPatty.png-fc5e34ded5884af17cde3eac68db4b5a.ctex"
+uid="uid://br1molxc7evw"
+path="res://.godot/imported/Raw Beef Patty.png-0af773f543f6aabc24271bbe321a05ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Food/NewSprites/BeefPatty.png"
-dest_files=["res://.godot/imported/BeefPatty.png-fc5e34ded5884af17cde3eac68db4b5a.ctex"]
+source_file="res://Images/Food/NewSprites/Raw Beef Patty.png"
+dest_files=["res://.godot/imported/Raw Beef Patty.png-0af773f543f6aabc24271bbe321a05ff.ctex"]
 
 [params]
 

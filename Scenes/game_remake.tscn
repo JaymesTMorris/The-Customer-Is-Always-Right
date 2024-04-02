@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/game_remake.gd" id="1_ci1x2"]
 [ext_resource type="Texture2D" uid="uid://we5lb2c8tg11" path="res://Images/KitchenBackground.png" id="1_hqupb"]
-[ext_resource type="Texture2D" uid="uid://br1molxc7evw" path="res://Images/Food/NewSprites/RawBeefPatty.png" id="2_qxoga"]
+[ext_resource type="Texture2D" uid="uid://br1molxc7evw" path="res://Images/Food/NewSprites/Raw Beef Patty.png" id="2_qxoga"]
 [ext_resource type="Script" path="res://Scripts/burger_order_generator_new.gd" id="2_r3w50"]
 [ext_resource type="Script" path="res://Scripts/item_slot_new.gd" id="3_6ae1a"]
 [ext_resource type="Script" path="res://Scripts/CookingManager.gd" id="3_7j7sd"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://c82au6loxeknt" path="res://Images/Food/NewSprites/Cheese.png" id="4_k3aeh"]
 [ext_resource type="Texture2D" uid="uid://dln2ty2s61bfb" path="res://Images/GUI/GUI.png" id="5_hdqpi"]
 [ext_resource type="Texture2D" uid="uid://b8iur3d2038a4" path="res://Images/Food/NewSprites/Lettuce.png" id="5_pj8x6"]
-[ext_resource type="Texture2D" uid="uid://ctlfhektjxlgl" path="res://Images/Food/NewSprites/TopBun.png" id="6_bse2u"]
+[ext_resource type="Texture2D" uid="uid://ctlfhektjxlgl" path="res://Images/Food/NewSprites/Top Bun.png" id="6_bse2u"]
 [ext_resource type="FontFile" uid="uid://djbbywa50mfgv" path="res://Fonts/Comic Sans MS/COMICBD.TTF" id="6_uvkwi"]
-[ext_resource type="Texture2D" uid="uid://c2dldlfwbwvmg" path="res://Images/Food/NewSprites/BottomBun.png" id="7_7yy1e"]
+[ext_resource type="Texture2D" uid="uid://c2dldlfwbwvmg" path="res://Images/Food/NewSprites/Bottom Bun.png" id="7_7yy1e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wj2t4"]
 texture = ExtResource("5_hdqpi")

@@ -3,15 +3,15 @@ extends Node
 var timer: Timer
 
 func generate_burger_order(is_good_customer: bool = true):
-	var burger_order = ["TopBun"] # Burger orders will always have a Top Bun
+	var burger_order = ["Top Bun"] # Burger orders will always have a Top Bun
 	var good_ingredients = generate_good_burger_ingredients() # Returns 0 - 2 good ingredients
 	var bad_ingredients = generate_bad_burger_ingredients() # Returns 1 bad ingredient
 	
 	burger_order.append_array(good_ingredients)
 	if not is_good_customer:
 		burger_order.append_array(bad_ingredients) 
-	burger_order.append("BeefPatty") # Burger orders will always have a Cooked Patty
-	burger_order.append("BottomBun") # Burger orders will always have a Bottom Bun
+	burger_order.append("Beef Patty") # Burger orders will always have a Cooked Patty
+	burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
 	
 	return burger_order
 
