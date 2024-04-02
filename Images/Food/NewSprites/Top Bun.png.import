@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctlfhektjxlgl"
-path="res://.godot/imported/TopBun.png-13287bc84bd71019b3cf3e16f14ab429.ctex"
+path="res://.godot/imported/Top Bun.png-2ddaa34a5e9fe586f19b7ec5537f3983.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Food/NewSprites/TopBun.png"
-dest_files=["res://.godot/imported/TopBun.png-13287bc84bd71019b3cf3e16f14ab429.ctex"]
+source_file="res://Images/Food/NewSprites/Top Bun.png"
+dest_files=["res://.godot/imported/Top Bun.png-2ddaa34a5e9fe586f19b7ec5537f3983.ctex"]
 
 [params]
 

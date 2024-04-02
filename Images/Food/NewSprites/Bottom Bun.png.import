@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb5pixn6hxf6i"
-path="res://.godot/imported/BurntBeefPatty.png-7582d3964cba1377a0e2f0e8c280efe9.ctex"
+uid="uid://c2dldlfwbwvmg"
+path="res://.godot/imported/Bottom Bun.png-275df88204eae3b0943aca20cd774f6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Food/NewSprites/BurntBeefPatty.png"
-dest_files=["res://.godot/imported/BurntBeefPatty.png-7582d3964cba1377a0e2f0e8c280efe9.ctex"]
+source_file="res://Images/Food/NewSprites/Bottom Bun.png"
+dest_files=["res://.godot/imported/Bottom Bun.png-275df88204eae3b0943aca20cd774f6c.ctex"]
 
 [params]
 
