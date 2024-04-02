@@ -8,7 +8,11 @@ var map_data = {\
 "Plate1": [],
 "Plate2": [],
 "Plate3": [],
-"Plate4": []}
+"Plate4": [],
+"Plate1_Order": [],
+"Plate2_Order": [],
+"Plate3_Order": [],
+"Plate4_Order": []}
 
 var is_dragging = false
 var score = 0

@@ -94,6 +94,13 @@ func _drop_data(at_position, data):
 	print("map_data: ",global.map_data)
 	print("- - - - - - - - - - - - - - - - - -")
 
+func clear_plate(): # Called by burger_order_generator_new.gd
+	texture = null
+	for n in get_children():
+		remove_child(n)
+		n.queue_free()
+	global.map_data[get_parent().get_name()] = []
+
 
 
 
