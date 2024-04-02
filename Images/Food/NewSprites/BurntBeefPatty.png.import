@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdq705srs5mln"
-path="res://.godot/imported/Half cooked patty.png-b923c3b814d9a8530fc9fce1076bd821.ctex"
+uid="uid://cb5pixn6hxf6i"
+path="res://.godot/imported/BurntBeefPatty.png-7582d3964cba1377a0e2f0e8c280efe9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Food/NewSprites/Half cooked patty.png"
-dest_files=["res://.godot/imported/Half cooked patty.png-b923c3b814d9a8530fc9fce1076bd821.ctex"]
+source_file="res://Images/Food/NewSprites/BurntBeefPatty.png"
+dest_files=["res://.godot/imported/BurntBeefPatty.png-7582d3964cba1377a0e2f0e8c280efe9.ctex"]
 
 [params]
 

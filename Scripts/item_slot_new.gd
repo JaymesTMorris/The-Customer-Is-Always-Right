@@ -26,8 +26,10 @@ func _get_drag_data(at_position):
 		for n in get_children():
 			remove_child(n)
 			n.queue_free()
+		print("- - - - - _get_drag_data  - - - - -")
 		print("Cleared Plate")
 		print("map_data: ",global.map_data)
+		print("- - - - - - - - - - - - - - - - - -")
 
 func _can_drop_data(at_position, data):
 	var target_item_slot = get_parent().get_name()
@@ -41,7 +43,7 @@ func _can_drop_data(at_position, data):
 		return false
 
 func _drop_data(at_position, data):
-	print("- - - - - - - - - - - - - - - - - -")
+	print("- - - - - - _drop_data  - - - - - -")
 	#var target_item_slot = get_parent()
 	var target_item_slot_name = get_parent().get_name()
 	var origin_node_name = data["origin_node"].get_parent().get_name()
@@ -59,6 +61,8 @@ func _drop_data(at_position, data):
 		elif data["origin_slot"].left(2) != "O_": # If origin slot is not a origin item
 			data["origin_node"].texture = null
 			print("Trashed item.")
+			if origin_node_type == "Grill":
+				get_tree().get_root().find_child("CookingManager", true, false).emit_signal("grill_item_removed", origin_node_name)
 		else:
 			print("Trashed item in hand; Kept origin item.")
 		global.map_data[origin_node_name] = []
@@ -74,12 +78,15 @@ func _drop_data(at_position, data):
 					data["origin_node"].remove_child(n)
 					n.queue_free()
 				print("Removed item textures from plate.")
+			elif origin_node_type == "Grill":
+				get_tree().get_root().find_child("CookingManager", true, false).emit_signal("grill_item_removed", origin_node_name)
 		else:
 			print("Copying item to new location...")
 		
 		# MOVE ITEMS TO NEW SLOT
 		if item_slot_type == "Grill":
 			texture = data["origin_texture"]
+			get_tree().get_root().find_child("CookingManager", true, false).emit_signal("new_grill_item", target_item_slot_name)
 		elif item_slot_type == "Plate":
 			var new_texture_node = TextureRect.new()
 			new_texture_node.texture = data["origin_texture"]

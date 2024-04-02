@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkivglnwylb7g"]
+[gd_scene load_steps=17 format=3 uid="uid://dkivglnwylb7g"]
 
 [ext_resource type="Script" path="res://Scripts/game_remake.gd" id="1_ci1x2"]
 [ext_resource type="Texture2D" uid="uid://we5lb2c8tg11" path="res://Images/KitchenBackground.png" id="1_hqupb"]
 [ext_resource type="Texture2D" uid="uid://br1molxc7evw" path="res://Images/Food/NewSprites/RawBeefPatty.png" id="2_qxoga"]
 [ext_resource type="Script" path="res://Scripts/burger_order_generator_new.gd" id="2_r3w50"]
 [ext_resource type="Script" path="res://Scripts/item_slot_new.gd" id="3_6ae1a"]
+[ext_resource type="Script" path="res://Scripts/CookingManager.gd" id="3_7j7sd"]
 [ext_resource type="FontFile" uid="uid://bsel54ud03407" path="res://Fonts/Comic Sans MS/COMIC.TTF" id="4_55avv"]
 [ext_resource type="Texture2D" uid="uid://c82au6loxeknt" path="res://Images/Food/NewSprites/Cheese.png" id="4_k3aeh"]
 [ext_resource type="Texture2D" uid="uid://dln2ty2s61bfb" path="res://Images/GUI/GUI.png" id="5_hdqpi"]
@@ -32,6 +33,10 @@ script = ExtResource("1_ci1x2")
 script = ExtResource("2_r3w50")
 
 [node name="Timer" type="Timer" parent="OrderGenerator"]
+wait_time = 3.0
+
+[node name="CookingManager" type="Node" parent="."]
+script = ExtResource("3_7j7sd")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_hqupb")

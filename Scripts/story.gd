@@ -58,7 +58,7 @@ func _next_dialogue():
 
 func _on_continue_pressed():
 	audio_player.play_sfx(audio_player.button_click_sfx)
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/game_remake.tscn")
 
 
 func _on_button_mouse_entered():
