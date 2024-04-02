@@ -26,19 +26,19 @@ func item_removed_from_grill(grill_name):
 func _on_timer_timeout(grill_name):
 	var grill = get_parent().find_child(grill_name, true, false)
 	var food_in_grill
-	if grill.find_child("Icon").texture != null:
-		food_in_grill = grill.find_child("Icon").texture.resource_path.get_file().get_basename()
+	if grill.find_child("Icon", true, false).texture != null:
+		food_in_grill = grill.find_child("Icon", true, false).texture.resource_path.get_file().get_basename()
 		if food_in_grill == "RawBeefPatty":
-			grill.find_child("Icon").texture = load("res://Images/Food/NewSprites/HalfCookedBeefPatty.png")
+			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/HalfCookedBeefPatty.png")
 		elif food_in_grill == "HalfCookedBeefPatty":
-			grill.find_child("Icon").texture = load("res://Images/Food/NewSprites/BeefPatty.png")
+			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/BeefPatty.png")
 		elif food_in_grill == "BeefPatty":
-			grill.find_child("Icon").texture = load("res://Images/Food/NewSprites/BurntBeefPatty.png")
+			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/BurntBeefPatty.png")
 		else:
-			grill.find_child("Icon").texture = load("res://Images/Food/NewSprites/Ashes.png")
+			grill.find_child("Icon", true, false).texture = load("res://Images/Food/NewSprites/Ashes.png")
 
 func _start_cooking_timer(grill_name):
-	if find_child(grill_name + "_Timer") == null:
+	if find_child(grill_name + "_Timer", true, false) == null:
 		var timer = Timer.new()
 		add_child(timer)
 		timer.name = grill_name + "_Timer"
@@ -47,5 +47,5 @@ func _start_cooking_timer(grill_name):
 		timer.start()
 		timer.connect("timeout", func(): _on_timer_timeout(grill_name))
 	else:
-		find_child(grill_name + "_Timer").start()
+		find_child(grill_name + "_Timer", true, false).start()
 	
