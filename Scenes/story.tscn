@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5scjt2dagqa6"]
+[gd_scene load_steps=10 format=3 uid="uid://c5scjt2dagqa6"]
 
 [ext_resource type="Script" path="res://Scripts/story.gd" id="1_qo7qm"]
+[ext_resource type="Texture2D" uid="uid://viqpeetiplcu" path="res://Images/Food/PoisonIvyJar.jpg" id="2_5oqlh"]
+[ext_resource type="Texture2D" uid="uid://d22y3qmll2816" path="res://Images/Karen.png" id="2_sy2gq"]
 [ext_resource type="FontFile" uid="uid://bsel54ud03407" path="res://Fonts/Comic Sans MS/COMIC.TTF" id="2_u8f6n"]
+[ext_resource type="Texture2D" uid="uid://c2dldlfwbwvmg" path="res://Images/Food/NewSprites/Bottom Bun.png" id="4_qytri"]
+[ext_resource type="Texture2D" uid="uid://285uq0hr5chh" path="res://Images/Food/NewSprites/Beef Patty.png" id="5_78hf0"]
+[ext_resource type="Texture2D" uid="uid://c82au6loxeknt" path="res://Images/Food/NewSprites/Cheese.png" id="6_y54a7"]
+[ext_resource type="Texture2D" uid="uid://b8iur3d2038a4" path="res://Images/Food/NewSprites/Lettuce.png" id="7_2a0tq"]
+[ext_resource type="Texture2D" uid="uid://ctlfhektjxlgl" path="res://Images/Food/NewSprites/Top Bun.png" id="8_wl33v"]
 
 [node name="Story" type="Control"]
 layout_mode = 3
@@ -25,6 +32,42 @@ color = Color(0.882353, 0.882353, 0.882353, 1)
 scale = Vector2(1.5, 1.5)
 centered = false
 
+[node name="Posion Ivy" type="Sprite2D" parent="."]
+position = Vector2(1059, -225)
+texture = ExtResource("2_5oqlh")
+
+[node name="Karen" type="Sprite2D" parent="."]
+position = Vector2(1715, 277)
+rotation = -0.10472
+texture = ExtResource("2_sy2gq")
+
+[node name="Burger" type="Node2D" parent="."]
+
+[node name="BunBot" type="Sprite2D" parent="Burger"]
+position = Vector2(750.92, 942.92)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("4_qytri")
+
+[node name="BurgerPatty" type="Sprite2D" parent="Burger"]
+position = Vector2(755.92, 932.92)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_78hf0")
+
+[node name="Cheese" type="Sprite2D" parent="Burger"]
+position = Vector2(752.92, 917.92)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_y54a7")
+
+[node name="Lettuce" type="Sprite2D" parent="Burger"]
+position = Vector2(757.92, 900.92)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_2a0tq")
+
+[node name="BunTop" type="Sprite2D" parent="Burger"]
+position = Vector2(758.92, 884.92)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("8_wl33v")
+
 [node name="StoryOutput" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -40,7 +83,7 @@ grow_vertical = 0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_u8f6n")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 
 [node name="StoryOutputBackground" type="ColorRect" parent="StoryOutput"]
