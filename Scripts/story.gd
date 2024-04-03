@@ -19,6 +19,14 @@ func _ready():
 	player = get_node("/root/player")
 	start_story()
 
+func _process(delta):
+	$Karen.position = Vector2($Karen.position.x - (25 * delta), $Karen.position.y + (25 * delta))
+	$"Posion Ivy".position = Vector2($"Posion Ivy".position.x + (15 * delta), $"Posion Ivy".position.y + (30 * delta))
+	$Burger.position = Vector2($Burger.position.x + (35 * delta), $Burger.position.y - (10 * delta))
+	$Chef.scale.x += 0.01 * delta
+	$Chef.scale.y += 0.01 * delta
+	
+
 func start_story():
 	get_node("StoryOutput/Next").disabled = true
 	if player.gender == 0:
