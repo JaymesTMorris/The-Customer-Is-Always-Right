@@ -6,6 +6,7 @@ const game_background_sounds = preload("res://Sounds/90202__greg-baumont__restau
 const button_hover_sfx = preload("res://Sounds/26777__junggle__btn402.mp3")
 const button_click_sfx = preload("res://Sounds/245645__unfa__cartoon-pop-clean.mp3")
 const sizzling_sfx = preload("res://Sounds/85468__jasonelrod__sizzling.mp3")
+const talking_sfx = preload("res://Sounds/184447__nickreffin__cartoon-phone-voice.wav")
 
 
 

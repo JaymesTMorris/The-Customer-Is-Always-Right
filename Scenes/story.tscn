@@ -40,7 +40,7 @@ grow_vertical = 0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_u8f6n")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 
 [node name="StoryOutputBackground" type="ColorRect" parent="StoryOutput"]
