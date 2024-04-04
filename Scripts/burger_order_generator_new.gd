@@ -54,10 +54,14 @@ func generate_bad_burger_ingredients():
 	var bad_ingredients = []
 	
 	# 50% for bad burger to have Ashes (:
-	if randi() % 2 == 0: 
-		bad_ingredients.append("Ashes")
-	elif randi() % 2 == 0: 
-		bad_ingredients.append("Poison Ivy")
+	var dice = randi_range(0,2)
+	match dice:
+		0:
+			bad_ingredients.append("Ashes")
+		1:
+			bad_ingredients.append("Poison Ivy")
+		2:
+			bad_ingredients.append("Latex glove")
 		
 	# Bad burgers will have either be raw or burnt
 	if randi() % 2 == 0: 

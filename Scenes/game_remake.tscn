@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkivglnwylb7g"]
+[gd_scene load_steps=22 format=3 uid="uid://dkivglnwylb7g"]
 
 [ext_resource type="Script" path="res://Scripts/game_remake.gd" id="1_ci1x2"]
 [ext_resource type="Texture2D" uid="uid://we5lb2c8tg11" path="res://Images/KitchenBackground.png" id="1_hqupb"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b80ca3salt5fo" path="res://Images/Food/NewSprites/Moldy Top Bun.png" id="14_3n4i5"]
 [ext_resource type="Texture2D" uid="uid://dyuxxlt1s0vjr" path="res://Images/Food/NewSprites/Moldy Bottom Bun.png" id="16_jnay1"]
 [ext_resource type="Texture2D" uid="uid://cd1mm6xm0ehqt" path="res://Images/Food/NewSprites/Poison Ivy.png" id="17_1nfyt"]
+[ext_resource type="Texture2D" uid="uid://bupa4q14pjutb" path="res://Images/Food/NewSprites/Latex glove.png" id="18_b755e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wj2t4"]
 texture = ExtResource("5_hdqpi")
@@ -292,10 +293,10 @@ script = ExtResource("3_6ae1a")
 
 [node name="O_Poison Ivy" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 1429.0
-offset_top = 410.0
-offset_right = 1511.0
-offset_bottom = 492.0
+offset_left = 1490.0
+offset_top = 414.0
+offset_right = 1572.0
+offset_bottom = 496.0
 
 [node name="Icon" type="TextureRect" parent="O_Poison Ivy"]
 layout_mode = 0
@@ -303,6 +304,21 @@ offset_right = 2048.0
 offset_bottom = 2048.0
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("17_1nfyt")
+script = ExtResource("3_6ae1a")
+
+[node name="O_LatexGlove" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1364.0
+offset_top = 415.0
+offset_right = 1446.0
+offset_bottom = 497.0
+
+[node name="Icon" type="TextureRect" parent="O_LatexGlove"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("18_b755e")
 script = ExtResource("3_6ae1a")
 
 [node name="Grill1" type="ColorRect" parent="."]
