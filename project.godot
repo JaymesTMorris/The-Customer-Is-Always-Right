@@ -13,6 +13,7 @@ config_version=5
 config/name="The Customer Is Always Right"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/image="res://Sprites/Title.png"
 config/icon="res://Images/icon.svg"
 
 [autoload]
