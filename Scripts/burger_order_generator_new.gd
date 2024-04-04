@@ -3,26 +3,41 @@ extends Node
 var timer: Timer
 
 func generate_burger_order(is_good_customer: bool = true):
-	var burger_order = ["Top Bun"] # Burger orders will always have a Top Bun
+	var burger_order = [] # Burger orders will always have a Top Bun
 	var good_ingredients = generate_good_burger_ingredients() # Returns 0 - 2 good ingredients
 	var bad_ingredients = generate_bad_burger_ingredients() # Returns 1 bad ingredient
+	
+	if not is_good_customer:
+		if randi() % 2 == 0: # 50% for burger to have moldy bun vs normal bun
+			burger_order.append("Moldy Top Bun")
+		else:
+			burger_order.append("Top Bun") # Burger orders will always have a Bottom Bun
+	else:
+		burger_order.append("Top Bun") # Burger orders will always have a Bottom Bun
 	
 	burger_order.append_array(good_ingredients)
 	if not is_good_customer:
 		burger_order.append_array(bad_ingredients) 
 	else:
 		burger_order.append("Beef Patty") # Only good customers get a normal cooked patty (:
-	burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
+	
+	if not is_good_customer:
+		if randi() % 2 == 0: # 50% for burger to have moldy bun vs normal bun
+			burger_order.append("Moldy Bottom Bun")
+		else:
+			burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
+	else:
+		burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
 	
 	return burger_order
 
 func generate_good_burger_ingredients():
 	var good_ingredients = []
 	var current_ingredients_on_burger = 3 # Burgers are always have 2 buns and 1 patty
-	# TODO: Add tomato sprite
-	#if randi() % 2 == 0: # 50% for burger to have Tomato
-		#good_ingredients.append("Tomato")
-		#current_ingredients_on_burger += 1
+
+	if randi() % 2 == 0: # 50% for burger to have Tomato
+		good_ingredients.append("Tomato")
+		current_ingredients_on_burger += 1
 	if randi() % 2 == 0: # 50% for burger to have Lettuce
 		good_ingredients.append("Lettuce")
 		current_ingredients_on_burger += 1
@@ -32,7 +47,6 @@ func generate_good_burger_ingredients():
 	if randi() % 2 == 0 && current_ingredients_on_burger < 5: # 50% for burger to have Cheese (or extra cheese)
 		good_ingredients.append("Cheese")
 		current_ingredients_on_burger += 1
-	print()
 		
 	return good_ingredients
 
@@ -42,6 +56,8 @@ func generate_bad_burger_ingredients():
 	# 50% for bad burger to have Ashes (:
 	if randi() % 2 == 0: 
 		bad_ingredients.append("Ashes")
+	elif randi() % 2 == 0: 
+		bad_ingredients.append("Poison Ivy")
 		
 	# Bad burgers will have either be raw or burnt
 	if randi() % 2 == 0: 

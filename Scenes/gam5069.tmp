@@ -432,8 +432,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_6ae1a")
-
-[connection signal="button_down" from="ServeButton1" to="OrderGenerator" method="_on_serve_button_down" binds= [1]]
-[connection signal="button_down" from="ServeButton2" to="OrderGenerator" method="_on_serve_button_down" binds= [2]]
-[connection signal="button_down" from="ServeButton3" to="OrderGenerator" method="_on_serve_button_down" binds= [3]]
-[connection signal="button_down" from="ServeButton4" to="OrderGenerator" method="_on_serve_button_down" binds= [4]]
