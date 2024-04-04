@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/food.gd" id="1_yuoi7"]
 [ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_qnhnt"]
-[ext_resource type="Texture2D" uid="uid://dfw3clwtupgyo" path="res://Images/Food/SimpleSprites/Cheese.png" id="3_nn8wg"]
+[ext_resource type="Texture2D" uid="uid://ddnoekwlr8npj" path="res://Sprites/Cheese slice.png" id="3_4wtf8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
 shader = ExtResource("2_qnhnt")
@@ -20,8 +20,8 @@ script = ExtResource("1_yuoi7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rgeuv")
 position = Vector2(4.76837e-07, 4.76837e-07)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_nn8wg")
+scale = Vector2(0.015625, 0.015625)
+texture = ExtResource("3_4wtf8")
 
 [node name="Area2D" type="Area2D" parent="."]
 

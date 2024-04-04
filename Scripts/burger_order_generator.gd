@@ -6,19 +6,27 @@ var burger_ingredients: Array = [
 	["Top Bun", "bun_top.tscn"],
 	["Cheese", "cheese.tscn"],
 	["Lettuce", "lettuce.tscn"],
-	["Tomato", "tomato.tscn"]
+	["Tomato", "tomato.tscn"],
+	["Moldy Bottom", "moldy_bottom.tscn"],
+	["Moldy Top", "moldy_top.tscn"]
 ]
 
 # Work in progress
 var bad_burger_ingredients: Array = [
 	#["Moldy Bread", "moldy_bread.tscn"],
-	["Poison Ivy", "poison_ivy.tscn"]
+	["Poison Ivy", "poison_ivy.tscn"],
+	["Burnt Food", null],
+	["Raw Patty", null]
 ]
 
 var timer : Timer
 
 func generate_burger_order(is_good_customer: bool = true):
-	var burger_order = ["Top Bun"] # Burger orders will always have a Top Bun
+	var burger_order 
+	if is_good_customer:
+		burger_order = ["Top Bun"] # Burger orders will always have a Top Bun
+	else:
+		burger_order = ["Moldy Top"]
 	var good_ingredients = generate_good_burger_ingredients() # Returns 0 - 2 good ingredients
 	var bad_ingredients = generate_bad_burger_ingredients() # Returns 1 bad ingredient
 	
@@ -26,7 +34,10 @@ func generate_burger_order(is_good_customer: bool = true):
 	if not is_good_customer:
 		burger_order.append_array(bad_ingredients) 
 	burger_order.append("Cooked Patty") # Burger orders will always have a Cooked Patty
-	burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
+	if is_good_customer:
+		burger_order.append("Bottom Bun") # Burger orders will always have a Bottom Bun
+	else:
+		burger_order.append("Moldy Bottom")
 	
 	return burger_order
 
@@ -52,12 +63,18 @@ func generate_good_burger_ingredients():
 
 func generate_bad_burger_ingredients():
 	var bad_ingredients = []
-	
+	var dice = randi_range(0,1)
+	match dice:
+		0:
+			bad_ingredients.append("Poison Ivy")
+		1:
+			bad_ingredients.append("Burnt Food")
+		2:
+			bad_ingredients.append("Raw Patty")
 	# 50% for burger to have Moldy Bread or Poison Ivy
 	#if randi() % 2 == 0: 
 	#	bad_ingredients.append("Moldy Bread")
 	#else:
-	bad_ingredients.append("Poison Ivy")
 		
 	return bad_ingredients
 

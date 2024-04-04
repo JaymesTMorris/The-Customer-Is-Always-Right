@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/food.gd" id="1_1kexb"]
 [ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_l8xge"]
-[ext_resource type="Texture2D" uid="uid://bmtxm2rlo2xm7" path="res://Images/Food/SimpleSprites/Tomato.png" id="3_vkwyj"]
+[ext_resource type="Texture2D" uid="uid://b33djia3bqo1t" path="res://Sprites/Tomato slice.png" id="3_5jb1w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
 shader = ExtResource("2_l8xge")
@@ -20,8 +20,8 @@ script = ExtResource("1_1kexb")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rgeuv")
 position = Vector2(4.76837e-07, 4.76837e-07)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_vkwyj")
+scale = Vector2(0.015625, 0.015625)
+texture = ExtResource("3_5jb1w")
 
 [node name="Area2D" type="Area2D" parent="."]
 

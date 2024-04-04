@@ -108,10 +108,10 @@ func stop_cooking(grill_name):
 func _on_timer_timeout():
 	if food_prefab_path.get_file() == "beef_patty.tscn" && is_raw:
 		is_raw = false
-		$Sprite2D.texture = load("res://Images/Food/SimpleSprites/BeefPatty.png")
+		$Sprite2D.texture = load("res://Sprites/Cooked patty.png")
 	else:
 		is_burnt = true
-		$Sprite2D.texture = load("res://Images/Food/SimpleSprites/Ashes.png")
+		$Sprite2D.texture = load("res://Sprites/BURNT.png")
 		stop_cooking(hovered_item_slot.name)
 
 func tween_finished(delete:bool = false):

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/food.gd" id="1_k5534"]
 [ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_f1rlm"]
-[ext_resource type="Texture2D" uid="uid://bnrf1rv07x7cg" path="res://Images/Food/SimpleSprites/TopBun.png" id="3_dialm"]
+[ext_resource type="Texture2D" uid="uid://up8wlxoxskbx" path="res://Sprites/Top bun.png" id="3_bfm23"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
 shader = ExtResource("2_f1rlm")
@@ -19,9 +19,9 @@ script = ExtResource("1_k5534")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rgeuv")
-position = Vector2(4.76837e-07, 4.76837e-07)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_dialm")
+position = Vector2(6.25849e-07, -1.3411e-06)
+scale = Vector2(0.015625, 0.015625)
+texture = ExtResource("3_bfm23")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -18,3 +18,7 @@ var is_dragging = false
 var score = 0
 var items_on_grill: int = 0
 
+var is_something_cooking_on_grill0
+var is_something_cooking_on_grill1
+var is_something_cooking_on_grill2
+var is_something_cooking_on_grill3

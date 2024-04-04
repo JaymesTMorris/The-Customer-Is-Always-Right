@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7qj0k5ruoe13"]
+[gd_scene load_steps=6 format=3 uid="uid://dvmpe0u6c5km6"]
 
-[ext_resource type="Script" path="res://Scripts/food.gd" id="1_klaoi"]
-[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_224bx"]
-[ext_resource type="Texture2D" uid="uid://cl1sl1onlx6ib" path="res://Sprites/Raw patty.png" id="3_aplgx"]
+[ext_resource type="Script" path="res://Scripts/food.gd" id="1_i3je0"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="2_ejpvx"]
+[ext_resource type="Texture2D" uid="uid://bhfrhlqri56wq" path="res://Sprites/Moldy bottom bun.png" id="3_e48gx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgeuv"]
-shader = ExtResource("2_224bx")
+shader = ExtResource("2_ejpvx")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
 shader_parameter/enabled = false
@@ -13,15 +13,14 @@ shader_parameter/enabled = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvkjh"]
 size = Vector2(32, 32)
 
-[node name="BeefPatty" type="Node2D"]
+[node name="Moldy Bottom" type="Node2D"]
 scale = Vector2(2, 2)
-script = ExtResource("1_klaoi")
+script = ExtResource("1_i3je0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rgeuv")
-position = Vector2(4.76837e-07, 4.76837e-07)
-scale = Vector2(0.015625, 0.0161133)
-texture = ExtResource("3_aplgx")
+scale = Vector2(0.015625, 0.015625)
+texture = ExtResource("3_e48gx")
 
 [node name="Area2D" type="Area2D" parent="."]
 
