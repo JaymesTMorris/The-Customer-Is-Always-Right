@@ -110,4 +110,3 @@ func clear_plate(): # Called by burger_order_generator_new.gd
 
 
 
-

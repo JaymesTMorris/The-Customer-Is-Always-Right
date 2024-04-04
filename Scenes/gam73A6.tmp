@@ -1,0 +1,440 @@
+[gd_scene load_steps=21 format=3 uid="uid://dkivglnwylb7g"]
+
+[ext_resource type="Script" path="res://Scripts/game_remake.gd" id="1_ci1x2"]
+[ext_resource type="Texture2D" uid="uid://we5lb2c8tg11" path="res://Images/KitchenBackground.png" id="1_hqupb"]
+[ext_resource type="Texture2D" uid="uid://br1molxc7evw" path="res://Images/Food/NewSprites/Raw Beef Patty.png" id="2_qxoga"]
+[ext_resource type="Script" path="res://Scripts/burger_order_generator_new.gd" id="2_r3w50"]
+[ext_resource type="Script" path="res://Scripts/item_slot_new.gd" id="3_6ae1a"]
+[ext_resource type="Script" path="res://Scripts/CookingManager.gd" id="3_7j7sd"]
+[ext_resource type="FontFile" uid="uid://bsel54ud03407" path="res://Fonts/Comic Sans MS/COMIC.TTF" id="4_55avv"]
+[ext_resource type="Texture2D" uid="uid://c82au6loxeknt" path="res://Images/Food/NewSprites/Cheese.png" id="4_k3aeh"]
+[ext_resource type="Texture2D" uid="uid://dln2ty2s61bfb" path="res://Images/GUI/GUI.png" id="5_hdqpi"]
+[ext_resource type="Texture2D" uid="uid://b8iur3d2038a4" path="res://Images/Food/NewSprites/Lettuce.png" id="5_pj8x6"]
+[ext_resource type="Texture2D" uid="uid://ctlfhektjxlgl" path="res://Images/Food/NewSprites/Top Bun.png" id="6_bse2u"]
+[ext_resource type="FontFile" uid="uid://djbbywa50mfgv" path="res://Fonts/Comic Sans MS/COMICBD.TTF" id="6_uvkwi"]
+[ext_resource type="Texture2D" uid="uid://c2dldlfwbwvmg" path="res://Images/Food/NewSprites/Bottom Bun.png" id="7_7yy1e"]
+[ext_resource type="Texture2D" uid="uid://3ieilf27fnkv" path="res://Images/Food/NewSprites/Tomato.png" id="12_ewu3g"]
+[ext_resource type="Texture2D" uid="uid://b80ca3salt5fo" path="res://Images/Food/NewSprites/Moldy Top Bun.png" id="14_3n4i5"]
+[ext_resource type="Texture2D" uid="uid://dyuxxlt1s0vjr" path="res://Images/Food/NewSprites/Moldy Bottom Bun.png" id="16_jnay1"]
+[ext_resource type="Texture2D" uid="uid://cd1mm6xm0ehqt" path="res://Images/Food/NewSprites/Poison Ivy.png" id="17_1nfyt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wj2t4"]
+texture = ExtResource("5_hdqpi")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nnenh"]
+texture = ExtResource("5_hdqpi")
+region_rect = Rect2(145, 81, 46, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fkju"]
+texture = ExtResource("5_hdqpi")
+region_rect = Rect2(145, 98, 46, 13)
+
+[node name="GameRemake" type="Node2D"]
+script = ExtResource("1_ci1x2")
+
+[node name="OrderGenerator" type="Node" parent="."]
+script = ExtResource("2_r3w50")
+
+[node name="Timer" type="Timer" parent="OrderGenerator"]
+wait_time = 3.0
+
+[node name="CookingManager" type="Node" parent="."]
+script = ExtResource("3_7j7sd")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_hqupb")
+centered = false
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+offset_top = 51.0
+offset_right = 1921.0
+offset_bottom = 129.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_55avv")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]0[/center]"
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1920.0
+offset_bottom = 77.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_55avv")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]SCORE[/center]"
+
+[node name="ServeButton1" type="Button" parent="."]
+offset_left = 684.0
+offset_top = 548.0
+offset_right = 789.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("4_55avv")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_wj2t4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nnenh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2fkju")
+text = "SERVE"
+
+[node name="ServeButton2" type="Button" parent="."]
+offset_left = 848.0
+offset_top = 547.0
+offset_right = 953.0
+offset_bottom = 576.0
+theme_override_fonts/font = ExtResource("4_55avv")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_wj2t4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nnenh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2fkju")
+text = "SERVE"
+
+[node name="ServeButton3" type="Button" parent="."]
+offset_left = 1019.0
+offset_top = 548.0
+offset_right = 1124.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("4_55avv")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_wj2t4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nnenh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2fkju")
+text = "SERVE"
+
+[node name="ServeButton4" type="Button" parent="."]
+offset_left = 1188.0
+offset_top = 545.0
+offset_right = 1293.0
+offset_bottom = 574.0
+theme_override_fonts/font = ExtResource("4_55avv")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_wj2t4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nnenh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2fkju")
+text = "SERVE"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 655.0
+offset_top = 580.0
+offset_right = 1339.0
+offset_bottom = 749.0
+
+[node name="OrderLabel1" type="RichTextLabel" parent="."]
+offset_left = 656.0
+offset_top = 585.0
+offset_right = 808.0
+offset_bottom = 752.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_uvkwi")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+
+[node name="OrderLabel2" type="RichTextLabel" parent="."]
+offset_left = 816.0
+offset_top = 585.0
+offset_right = 987.0
+offset_bottom = 746.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_uvkwi")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+
+[node name="OrderLabel3" type="RichTextLabel" parent="."]
+offset_left = 987.0
+offset_top = 586.0
+offset_right = 1166.0
+offset_bottom = 754.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_uvkwi")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+
+[node name="OrderLabel4" type="RichTextLabel" parent="."]
+offset_left = 1158.0
+offset_top = 584.0
+offset_right = 1328.0
+offset_bottom = 755.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_uvkwi")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+
+[node name="O_RawBeefPatty" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 142.0
+offset_top = 586.0
+offset_right = 224.0
+offset_bottom = 668.0
+
+[node name="Icon" type="TextureRect" parent="O_RawBeefPatty"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_qxoga")
+script = ExtResource("3_6ae1a")
+
+[node name="O_Cheese" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 72.0
+offset_top = 442.0
+offset_right = 154.0
+offset_bottom = 524.0
+
+[node name="Icon" type="TextureRect" parent="O_Cheese"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("4_k3aeh")
+script = ExtResource("3_6ae1a")
+
+[node name="O_Lettuce" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 202.0
+offset_top = 438.0
+offset_right = 284.0
+offset_bottom = 520.0
+
+[node name="Icon" type="TextureRect" parent="O_Lettuce"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("5_pj8x6")
+script = ExtResource("3_6ae1a")
+
+[node name="O_Tomato" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 143.0
+offset_top = 303.0
+offset_right = 225.0
+offset_bottom = 385.0
+
+[node name="Icon" type="TextureRect" parent="O_Tomato"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("12_ewu3g")
+script = ExtResource("3_6ae1a")
+
+[node name="O_TopBun" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1359.0
+offset_top = 290.0
+offset_right = 1441.0
+offset_bottom = 372.0
+
+[node name="Icon" type="TextureRect" parent="O_TopBun"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_bse2u")
+script = ExtResource("3_6ae1a")
+
+[node name="O_Moldy Top Bun" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1371.0
+offset_top = 609.0
+offset_right = 1453.0
+offset_bottom = 691.0
+
+[node name="Icon" type="TextureRect" parent="O_Moldy Top Bun"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("14_3n4i5")
+script = ExtResource("3_6ae1a")
+
+[node name="O_BottomBun" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1499.0
+offset_top = 286.0
+offset_right = 1581.0
+offset_bottom = 368.0
+
+[node name="Icon" type="TextureRect" parent="O_BottomBun"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("7_7yy1e")
+script = ExtResource("3_6ae1a")
+
+[node name="O_Moldy Bottom Bun" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1503.0
+offset_top = 607.0
+offset_right = 1585.0
+offset_bottom = 689.0
+
+[node name="Icon" type="TextureRect" parent="O_Moldy Bottom Bun"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("16_jnay1")
+script = ExtResource("3_6ae1a")
+
+[node name="O_Poison Ivy" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1429.0
+offset_top = 410.0
+offset_right = 1511.0
+offset_bottom = 492.0
+
+[node name="Icon" type="TextureRect" parent="O_Poison Ivy"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("17_1nfyt")
+script = ExtResource("3_6ae1a")
+
+[node name="Grill1" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 83.0
+offset_top = 766.0
+offset_right = 165.0
+offset_bottom = 848.0
+
+[node name="Icon" type="TextureRect" parent="Grill1"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+script = ExtResource("3_6ae1a")
+
+[node name="Grill2" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 385.0
+offset_top = 768.0
+offset_right = 467.0
+offset_bottom = 850.0
+
+[node name="Icon" type="TextureRect" parent="Grill2"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+script = ExtResource("3_6ae1a")
+
+[node name="Grill3" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 41.0
+offset_top = 876.0
+offset_right = 123.0
+offset_bottom = 958.0
+
+[node name="Icon" type="TextureRect" parent="Grill3"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+script = ExtResource("3_6ae1a")
+
+[node name="Grill4" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 328.0
+offset_top = 877.0
+offset_right = 410.0
+offset_bottom = 959.0
+
+[node name="Icon" type="TextureRect" parent="Grill4"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+script = ExtResource("3_6ae1a")
+
+[node name="Plate1" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 691.0
+offset_top = 460.0
+offset_right = 773.0
+offset_bottom = 542.0
+
+[node name="Icon" type="TextureRect" parent="Plate1"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+script = ExtResource("3_6ae1a")
+
+[node name="Plate2" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 854.0
+offset_top = 460.0
+offset_right = 936.0
+offset_bottom = 542.0
+
+[node name="Icon" type="TextureRect" parent="Plate2"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+script = ExtResource("3_6ae1a")
+
+[node name="Plate3" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 1032.0
+offset_top = 460.0
+offset_right = 1114.0
+offset_bottom = 542.0
+
+[node name="Icon" type="TextureRect" parent="Plate3"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+script = ExtResource("3_6ae1a")
+
+[node name="Plate4" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 1205.0
+offset_top = 460.0
+offset_right = 1287.0
+offset_bottom = 542.0
+
+[node name="Icon" type="TextureRect" parent="Plate4"]
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+scale = Vector2(0.04, 0.04)
+script = ExtResource("3_6ae1a")
+
+[node name="Trash" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.27451)
+offset_left = 1360.0
+offset_top = 932.0
+offset_right = 1590.0
+offset_bottom = 1012.0
+
+[node name="Icon" type="TextureRect" parent="Trash"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_6ae1a")
+
+[connection signal="button_down" from="ServeButton1" to="OrderGenerator" method="_on_serve_button_down" binds= [1]]
+[connection signal="button_down" from="ServeButton2" to="OrderGenerator" method="_on_serve_button_down" binds= [2]]
+[connection signal="button_down" from="ServeButton3" to="OrderGenerator" method="_on_serve_button_down" binds= [3]]
+[connection signal="button_down" from="ServeButton4" to="OrderGenerator" method="_on_serve_button_down" binds= [4]]
+[connection signal="mouse_entered" from="O_RawBeefPatty/Icon" to="O_RawBeefPatty/Icon" method="_on_mouse_entered"]
