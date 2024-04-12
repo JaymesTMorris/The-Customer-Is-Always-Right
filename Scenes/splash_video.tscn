@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn0mdfe5jq4kn"]
+
+[ext_resource type="VideoStream" path="res://SplashScreen/SplashArt.ogv" id="1_41d17"]
+[ext_resource type="Script" path="res://Scripts/splash_video.gd" id="2_gtdd6"]
+
+[node name="SplashVideo" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_41d17")
+autoplay = true
+expand = true
+script = ExtResource("2_gtdd6")
